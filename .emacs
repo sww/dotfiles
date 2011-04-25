@@ -66,6 +66,10 @@
   (interactive)
   (print "Mmmm, donuts."))
 
+(defun nm ()
+  (interactive)
+  (insert "if __name__ == '__main__':"))
+
 (defun iwb ()
   "indent whole buffer"
   (interactive)
@@ -86,19 +90,19 @@
     ;; switch to fullscreen mode
     (aquamacs-toggle-full-frame)))
 
- (when (load "flymake" t) 
-         (defun flymake-pyflakes-init () 
-           (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                              'flymake-create-temp-inplace)) 
-              (local-file (file-relative-name 
-                           temp-file 
-                           (file-name-directory buffer-file-name)))) 
-             (list "pyflakes" (list local-file)))) 
+(when (load "flymake" t) 
+  (defun flymake-pyflakes-init () 
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                       'flymake-create-temp-inplace)) 
+           (local-file (file-relative-name 
+                        temp-file 
+                        (file-name-directory buffer-file-name)))) 
+      (list "pyflakes" (list local-file)))) 
+  
+  (add-to-list 'flymake-allowed-file-name-masks 
+               '("\\.py\\'" flymake-pyflakes-init))) 
 
-         (add-to-list 'flymake-allowed-file-name-masks 
-                  '("\\.py\\'" flymake-pyflakes-init))) 
-
-   (add-hook 'find-file-hook 'flymake-find-file-hook)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 '(flymake-errline ((((class color)) (:background "LightPink" :foreground "black"))))
 '(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "black"))))
