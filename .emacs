@@ -2,6 +2,7 @@
 (setq default-tab-width 1)
 (setq tab-stop-list '(4 8 12 16))
 (setq mac-command-modifier 'meta)
+(setq default-abbrev-mode t)
 
 (global-set-key [f5] 'goto-line)
 (global-set-key [f8] 'comment-region)
@@ -68,7 +69,11 @@
 
 (defun nm ()
   (interactive)
-  (insert "if __name__ == '__main__':"))
+  (insert "if __name__ == '__main__':\n"))
+
+(defun pdb ()
+  (interactive)
+  (insert "import pdb; pdb.set_trace()"))
 
 (defun iwb ()
   "indent whole buffer"
