@@ -61,7 +61,7 @@
 (column-number-mode 1)
 (line-number-mode 1)
 ;;(require 'linum)
-;;(global-linum-mode)
+(global-linum-mode)
 
 (defun donuts ()
   (interactive)
@@ -69,9 +69,9 @@
 
 (defun nm ()
   (interactive)
-  (insert "if __name__ == '__main__':\n"))
+  (insert "if __name__ == '__main__':\n    "))
 
-(defun pdb ()
+(defun dbgpdb ()
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
 
