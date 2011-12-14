@@ -7,6 +7,7 @@ export VISUAL="emacs -no-site-file"
 alias df='df -h'
 alias keke='df'
 alias ll='ls -Gl'
+alias ls='ls --color'
 # Prevent OSX from writing ._ files?
 export COPYFILE_DISABLE=true
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well

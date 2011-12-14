@@ -15,6 +15,15 @@
 
 (menu-bar-mode nil)
 
+(setq load-path (cons "~/.emacs.d" load-path))
+
+;;(require 'color-theme-solarized)
+(add-to-list 'load-path "~/.emacs.d/solarized-dark-theme.el")
+(require 'solarized-dark-theme)
+
+;; Cursor color.
+(set-cursor-color "orange")
+
 (defun kill-before ()
   (interactive)
   (kill-line 0)
@@ -48,7 +57,7 @@
 ;;     "-outline-Consolas-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
 
 ;; More colors
-(set-face-foreground 'font-lock-comment-face "Lime Green")
+;;(set-face-foreground 'font-lock-comment-face "LimeGreen")
 
 ;; Set a title
 (setq frame-title-format '((buffer-file-name "%f"
@@ -57,7 +66,6 @@
 ;; Do not create backup files ending in ~
 (setq make-backup-files nil)
 
-(setq load-path (cons "~/.emacs.d" load-path))
 (column-number-mode 1)
 (line-number-mode 1)
 ;;(require 'linum)
@@ -71,7 +79,7 @@
   (interactive)
   (insert "if __name__ == '__main__':\n    "))
 
-(defun dbgpdb ()
+(defun pypdb ()
   (interactive)
   (insert "import pdb; pdb.set_trace()"))
 
@@ -81,19 +89,6 @@
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
-
-(defun writeroom ()
-  "Switches to a WriteRoom-like fullscreen style"
-  (interactive)	
-  (when (featurep 'aquamacs)
-    ;; switch to white on black
-    (color-theme-initialize)
-    (color-theme-clarity)
-    ;; switch to Garamond 12pt
-    (aquamacs-autoface-mode 0)
-    (set-frame-font "-apple-garamond-medium-r-normal--12-360-72-72-m-360-iso10646-1")
-    ;; switch to fullscreen mode
-    (aquamacs-toggle-full-frame)))
 
 (when (load "flymake" t) 
   (defun flymake-pyflakes-init () 
@@ -109,10 +104,19 @@
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 
-'(flymake-errline ((((class color)) (:background "LightPink" :foreground "black"))))
-'(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "black"))))
-
 (load-library "flymake-cursor.el")
+;;'(flymake-errline ((((class color)) (:background "LightPink" :foreground "black"))))
+;;'(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "black"))))
+;;(custom-set-faces
+;; '(flymake-errline ((((class color)) (:underline "Red"))))
+;; '(flymake-warnline ((((class color)) (:underline "Yellow")))))
+
+;; Flymake colors.
+(set-face-background 'flymake-errline "pink2")
+;;(set-face-underline 'flymake-errline "LightPink2")
+(set-face-background 'flymake-warnline nil)
+(set-face-underline 'flymake-warnline "yellow")
+
 ;; (add-to-list 'load-path ".emacs.d/emacs-for-python/")
 ;; (require 'epy-setup)
 ;; (require 'epy-python)

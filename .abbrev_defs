@@ -42,6 +42,7 @@
 (define-abbrev-table 'global-abbrev-table
   '(
     ("improt" "import" nil 2)
+    ("ipmort" "import" nil 2)
    ))
 
 (define-abbrev-table 'html-helper-mode-abbrev-table '())
