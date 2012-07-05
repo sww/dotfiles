@@ -5,9 +5,9 @@
 export EDITOR="emacs -no-site-file"
 export VISUAL="emacs -no-site-file"
 alias df='df -h'
-alias keke='df'
+alias ls='ls -G'
 alias ll='ls -Gl'
-alias ls='ls --color'
+
 # Prevent OSX from writing ._ files?
 export COPYFILE_DISABLE=true
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
@@ -18,12 +18,11 @@ export GREP_OPTIONS="--color=auto"
 #############################################
 
 # Colours for bash prompt.
-red="\033[1;31m";
-purp="\033[1;35m";
-cyan="\033[1;36m";
-blue="\033[1;34m";
-yellow="\033[1;33m";
-norm="\033[0;39m";
+red=$(tput setaf 1)
+cyan=$(tput setaf 6)
+blue=$(tput setaf 4)
+yellow=$(tput setaf 3)
+norm=$(tput sgr0)
 
 if [ "$PS1" ]; then
     if [[ $UID -eq 0 ]]; then
@@ -45,6 +44,3 @@ fi
 function f() {
     find . -name "$1" -print0 | xargs -0 grep -nH --color "${@:2}"
 }
-
-# Aquamacs stuff.
-defaults write org.gnu.AquaEmacs AppleAntiAliasingThreshold 96
