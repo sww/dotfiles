@@ -2,8 +2,8 @@
 # Misc.
 #############################################
 
-export EDITOR="emacs -no-site-file"
-export VISUAL="emacs -no-site-file"
+export EDITOR="emacs -no-site-file -f flyspell-mode"
+export VISUAL="emacs -no-site-file -f flyspell-mode"
 alias df='df -h'
 alias ls='ls -G'
 alias ll='ls -Gl'
@@ -18,20 +18,22 @@ export GREP_OPTIONS="--color=auto"
 #############################################
 
 # Colours for bash prompt.
-red=$(tput setaf 1)
-cyan=$(tput setaf 6)
-blue=$(tput setaf 4)
-yellow=$(tput setaf 3)
-norm=$(tput sgr0)
+if [ `tty -s` ]; then
+    red=$(tput setaf 1)
+    cyan=$(tput setaf 6)
+    blue=$(tput setaf 4)
+    yellow=$(tput setaf 3)
+    norm=$(tput sgr0)
+else
+    red="\033[1;31m";
+    cyan="\033[1;36m";
+    blue="\033[1;34m";
+    yellow="\033[1;33m";
+    norm="\033[1;39m";
+fi
 
 if [ "$PS1" ]; then
-    if [[ $UID -eq 0 ]]; then
-        # you are root, set red colour prompt
-        PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w #\\[$(tput sgr0)\\]"
-    else 
-        # normal
-        PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\w\[$norm\]\$ "
-    fi
+    PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\w\[$norm\]\$ "
     export PS1=$PS1
 fi
 
