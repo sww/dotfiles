@@ -1,0 +1,15 @@
+#!/bin/bash
+
+data=$(cat)
+exitcodes=()
+hookname=`basename $0`
+
+for hook in $GIT_DIR/hooks/$hookname-*; do
+  test -x "$hook" || continue
+  echo "$data" | "$hook"
+  exitcodes+=($?)
+done
+
+for i in "${exitcodes[@]}"; do
+  [ "$i" == 0 ] || exit $i
+done
