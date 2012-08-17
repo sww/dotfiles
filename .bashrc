@@ -29,7 +29,7 @@ else
     cyan="\033[1;36m";
     blue="\033[1;34m";
     yellow="\033[1;33m";
-    norm="\033[1;39m";
+    norm="\033[0;39m";
 fi
 
 if [ "$PS1" ]; then
