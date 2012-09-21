@@ -2,10 +2,20 @@
 # Misc.
 #############################################
 
-export EDITOR="emacs -no-site-file -f flyspell-mode"
-export VISUAL="emacs -no-site-file -f flyspell-mode"
+# OS dependent stuff.
+OS=${OSTYPE//[0-9.]/}
+if [[ "{$OS}" == "darwin" ]]; then
+    $spell_checker='';
+    $ls_color_flag='-G';
+elif [[ "${OS}" == "linux-gnu" ]]; then
+    $spell_checker="-f flyspell-mode";
+    $ls_color_flag='--color=always';
+fi
+
+export EDITOR="emacs -no-site-file ${spell_checker}"
+export VISUAL="emacs -no-site-file ${spell_checker}"
 alias df='df -h'
-alias ls='ls -G'
+alias ls='ls ${ls_color_flag}'
 alias ll='ls -Gl'
 
 # Prevent OSX from writing ._ files?
