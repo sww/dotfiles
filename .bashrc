@@ -4,18 +4,18 @@
 
 # OS dependent stuff.
 OS=${OSTYPE//[0-9.]/}
-if [[ "{$OS}" == "darwin" ]]; then
-    $spell_checker='';
-    $ls_color_flag='-G';
-elif [[ "${OS}" == "linux-gnu" ]]; then
-    $spell_checker="-f flyspell-mode";
-    $ls_color_flag='--color=always';
+if [[ "$OS" == "darwin" ]]; then
+    SPELL_CHECKER=""
+    LS_COLOR_FLAG="-G"
+elif [[ "$OS" == "linux-gnu" ]]; then
+    SPELL_CHECKER="-f flyspell-mode";
+    LS_COLOR_FLAG="--color=always";
 fi
 
-export EDITOR="emacs -no-site-file ${spell_checker}"
-export VISUAL="emacs -no-site-file ${spell_checker}"
+export EDITOR="emacs -no-site-file $SPELL_CHECKER"
+export VISUAL="emacs -no-site-file $SPELL_CHECKER"
 alias df='df -h'
-alias ls='ls ${ls_color_flag}'
+alias ls="ls $LS_COLOR_FLAG"
 alias ll='ls -Gl'
 
 # Prevent OSX from writing ._ files?
