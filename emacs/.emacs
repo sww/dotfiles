@@ -17,10 +17,6 @@
 
 (setq load-path (cons "~/.emacs.d" load-path))
 
-;;(require 'color-theme-solarized)
-(add-to-list 'load-path "~/.emacs.d/solarized-dark-theme.el")
-(require 'solarized-dark-theme)
-
 ;; Cursor color.
 (set-cursor-color "orange")
 
@@ -28,27 +24,6 @@
   (interactive)
   (kill-line 0)
 )
-
-;;(setq default-frame-alist
-;; (setq initial-frame-alist
-;;             '(
-;;               (top . 0) (left . 0)
-;;               (width . 80) (height . 43) ; Use 80 x 43 at resolution 1024 x 768
-;;               (cursor-color . "Orange")
-;;               (cursor-type . box)
-;;               (foreground-color . "Gray")
-;;               (background-color . "Black")
-;;               (vertical-scroll-bars . right)))
-
-;; (setq default-frame-alist
-;;             '(
-;;               (top . 0) (left . 0)
-;;               (width . 80) (height . 43) ; Use 80 x 43 at resolution 1024 x 768
-;;               (cursor-color . "Orange")
-;;               (cursor-type . box)
-;;               (foreground-color . "Gray")
-;;               (background-color . "Black")
-;;               (vertical-scroll-bars . right)))
 
 (scroll-bar-mode nil) ; No scroll bars
 
