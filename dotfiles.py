@@ -21,7 +21,7 @@ def sha1_checksum(path):
 
     return h.hexdigest()
 
-def careful_copy(src, dst, options):
+def interactive_copy(src, dst, options):
     """Prompt if file exists."""
     dst = dst.format(**DIR_VARS)
 
@@ -42,10 +42,10 @@ def careful_copy(src, dst, options):
 
         if os.path.isdir(src_path):
             log.info('* Copied dir "%s" to "%s"', src_path, dst_path)
-            shutil.copytree(src, dst)
+            shutil.copytree(src_path, dst)
         else:
             log.info('* Copied file "%s" to "%s"', src_path, dst_path)
-            shutil.copy(src, dst)
+            shutil.copy(src_path, dst)
 
     return True
 
@@ -69,13 +69,14 @@ def geaux(args=None, options=None):
 
         src = os.path.join(os.environ['PWD'], directory)
         dst = stuff.get('dest')
-        careful_copy(src, dst, options)
+        interactive_copy(src, dst, options)
 
 if __name__ == '__main__':
     import optparse
 
     parser = optparse.OptionParser()
-    parser.add_option('-y', action='store_true', dest='yes', default=False)
+    parser.add_option('-y', action='store_true', dest='yes', default=False,
+                      description='Do not prompt when overwriting files')
 
     options, args = parser.parse_args()
 
