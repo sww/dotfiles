@@ -21,13 +21,13 @@ def sha1_checksum(path):
 
     return h.hexdigest()
 
-def interactive_copy(src, dst, options):
+def interactive_copy(src_root, dst_root, options):
     """Prompt if file exists."""
-    dst = dst.format(**DIR_VARS)
+    dst_root = dst_root.format(**DIR_VARS)
 
-    for f in os.listdir(src):
-        src_path = os.path.join(src, f)
-        dst_path = os.path.join(dst, f)
+    for f in os.listdir(src_root):
+        src_path = os.path.join(src_root, f)
+        dst_path = os.path.join(dst_root, f)
         log.debug('Source is: %s', src_path)
         if os.path.exists(dst_path):
             if os.path.isdir(src_path):
@@ -42,10 +42,10 @@ def interactive_copy(src, dst, options):
 
         if os.path.isdir(src_path):
             log.info('* Copied dir "%s" to "%s"', src_path, dst_path)
-            shutil.copytree(src_path, dst)
+            shutil.copytree(src_path, dst_path)
         else:
             log.info('* Copied file "%s" to "%s"', src_path, dst_path)
-            shutil.copy(src_path, dst)
+            shutil.copy(src_path, dst_path)
 
     return True
 
@@ -67,9 +67,9 @@ def geaux(args=None, options=None):
         if stuff.get('os') and stuff.get('os') != OS:
             continue
 
-        src = os.path.join(os.environ['PWD'], directory)
-        dst = stuff.get('dest')
-        interactive_copy(src, dst, options)
+        src_root = os.path.join(os.environ['PWD'], directory)
+        dst_root = stuff.get('dest')
+        interactive_copy(src_root, dst_root, options)
 
 if __name__ == '__main__':
     import optparse
