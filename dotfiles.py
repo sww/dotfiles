@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
     parser = optparse.OptionParser()
     parser.add_option('-y', action='store_true', dest='yes', default=False,
-                      description='Do not prompt when overwriting files')
+                      help='Do not prompt when overwriting files')
 
     options, args = parser.parse_args()
 
