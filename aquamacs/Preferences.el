@@ -6,5 +6,3 @@
 
 (add-to-list 'load-path "~/.emacs.d/solarized-dark-theme.el")
 (require 'solarized-dark-theme)
-(scroll-bar-mode nil) ; No scroll bars
-(global-linum-mode)
