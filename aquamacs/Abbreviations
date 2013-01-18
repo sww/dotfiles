@@ -39,6 +39,8 @@
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
+(define-abbrev-table 'gdb-script-mode-abbrev-table '())
+
 (define-abbrev-table 'global-abbrev-table
   '(
     ("improt" "import" nil 2)
@@ -47,7 +49,10 @@
     ("reuqest" "request" nil 2)
     ("tiem" "time" nil 2)
     ("itmes" "items" nil 2)
+    ("nto" "not" nil 2)
    ))
+
+(define-abbrev-table 'gud-mode-abbrev-table '())
 
 (define-abbrev-table 'html-helper-mode-abbrev-table '())
 
@@ -55,11 +60,15 @@
 
 (define-abbrev-table 'inferior-moz-mode-abbrev-table '())
 
+(define-abbrev-table 'inferior-python-mode-abbrev-table '())
+
 (define-abbrev-table 'java-mode-abbrev-table
   '(
    ))
 
 (define-abbrev-table 'js-mode-abbrev-table '())
+
+(define-abbrev-table 'jython-mode-abbrev-table '())
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
@@ -71,7 +80,13 @@
   '(
    ))
 
+(define-abbrev-table 'py-mode-abbrev-table '())
+
 (define-abbrev-table 'python-mode-abbrev-table '())
+
+(define-abbrev-table 'python2-mode-abbrev-table '())
+
+(define-abbrev-table 'python3-mode-abbrev-table '())
 
 (define-abbrev-table 'select-tags-table-mode-abbrev-table '())
 
