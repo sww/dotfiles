@@ -50,6 +50,7 @@
     ("tiem" "time" nil 2)
     ("itmes" "items" nil 2)
     ("nto" "not" nil 2)
+    ("teh" "the" nil 2)
    ))
 
 (define-abbrev-table 'gud-mode-abbrev-table '())
