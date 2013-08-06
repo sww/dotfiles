@@ -20,7 +20,7 @@ alias ll='ls -Gl'
 
 # Prevent OSX from writing ._ files?
 export COPYFILE_DISABLE=true
-export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls:rm *'
 export GREP_OPTIONS="--color=auto"
 
 #############################################
