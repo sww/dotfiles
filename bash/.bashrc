@@ -18,9 +18,9 @@ alias df='df -h'
 alias ls="ls $LS_COLOR_FLAG"
 alias ll='ls -Gl'
 
-# Prevent OSX from writing ._ files?
-export COPYFILE_DISABLE=true
-export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls:rm *'
+export COPYFILE_DISABLE=true # Prevent OSX from writing ._ files?
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls:rm *' # Ignore the ls command as well
+export HISTCONTROL=ignoreboth # Both ignorespace and ignoredups.
 export GREP_OPTIONS="--color=auto"
 
 #############################################
