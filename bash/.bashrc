@@ -2,20 +2,10 @@
 # Misc.
 #############################################
 
-# OS dependent stuff.
-OS=${OSTYPE//[0-9.]/}
-if [[ "$OS" == "darwin" ]]; then
-    SPELL_CHECKER=""
-    LS_COLOR_FLAG="-G"
-elif [[ "$OS" == "linux-gnu" ]]; then
-    SPELL_CHECKER="-f flyspell-mode";
-    LS_COLOR_FLAG="--color=always";
-fi
-
-export EDITOR="emacs -no-site-file $SPELL_CHECKER"
-export VISUAL="emacs -no-site-file $SPELL_CHECKER"
+export EDITOR="emacs -no-site-file"
+export VISUAL="emacs -no-site-file"
 alias df='df -h'
-alias ls="ls $LS_COLOR_FLAG"
+alias ls='ls -G'
 alias ll='ls -Gl'
 
 export COPYFILE_DISABLE=true # Prevent OSX from writing ._ files?
@@ -28,14 +18,15 @@ export GREP_OPTIONS="--color=auto"
 #############################################
 
 # Colours for bash prompt.
-if [ `tty -s` ]; then
-    red=$(tput setaf 1)
-    cyan=$(tput setaf 6)
-    blue=$(tput setaf 4)
-    yellow=$(tput setaf 3)
-    norm=$(tput sgr0)
+if [ `command -v tput` ]; then
+    red=$(tty -s && tput setaf 1)
+    cyan=$(tty -s && tput setaf 6)
+    blue=$(tty -s && tput setaf 4)
+    yellow=$(tty -s && tput setaf 3)
+    norm=$(tty -s && tput sgr0)
 else
     red="\033[1;31m";
+    purp="\033[1;35m";
     cyan="\033[1;36m";
     blue="\033[1;34m";
     yellow="\033[1;33m";
@@ -43,7 +34,13 @@ else
 fi
 
 if [ "$PS1" ]; then
-    PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\w\[$norm\]\$ "
+    if [[ $UID -eq 0 ]]; then
+        # you are root, set red colour prompt
+        PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w #\\[$(tput sgr0)\\]"
+    else
+        # normal
+        PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\w\[$norm\]\$ "
+    fi
     export PS1=$PS1
 fi
 
