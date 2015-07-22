@@ -20,6 +20,5 @@
 (load-library "html")
 
 (cua-mode) ;; For being able to C-d selected lines.
-(ido-mode) ;; For listing open buffers when C-x b'ing.
 
 (eval-after-load 'flymake '(require 'flymake-cursor))
