@@ -22,3 +22,5 @@
 (cua-mode) ;; For being able to C-d selected lines.
 
 (eval-after-load 'flymake '(require 'flymake-cursor))
+
+(setq make-backup-files nil) ;; Don't leave ~ backup files everywhere.
