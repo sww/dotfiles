@@ -33,8 +33,8 @@
 
 ;; Custom colors for flymake.
 (custom-set-faces
-  '(flymake-errline ((((class color)) (:underline "Red"))))
-  '(flymake-warnline ((((class color)) (:underline "LightPink2")))))
+  '(flymake-errline ((((class color)) (:foreground "OrangeRed" :underline "Red"))))
+  '(flymake-warnline ((((class color)) (:foreground nil :underline "LightPink2")))))
 
 ;; Change this last since the other themes probably change the cursor color.
 (set-cursor-color "orange")
