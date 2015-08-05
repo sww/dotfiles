@@ -23,6 +23,7 @@
 (setq tab-stop-list '(4 8 12 16))
 (setq mac-command-modifier 'meta)
 (setq default-abbrev-mode t)
+(setq inhibit-startup-message t) ;; No welcome buffer.
 
 (column-number-mode 1)
 (line-number-mode 1)
