@@ -3,8 +3,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/") ;; Custom settings.
 (add-to-list 'load-path "~/.emacs.d/modes/") ;; Extra stuff to load for certain modes.
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
 
 ;; Load packages installed from MELPA.
 (load-library "melpa")
