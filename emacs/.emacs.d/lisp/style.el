@@ -34,3 +34,7 @@
 
 ;; Change this last since the other themes probably change the cursor color.
 (set-cursor-color "orange")
+
+;; Show the buffer's full file path in the title.
+(setq frame-title-format '((buffer-file-name "%f"
+                           (dired-directory dired-directory "%b"))))
