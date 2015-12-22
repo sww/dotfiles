@@ -11,8 +11,8 @@
 (load-library "keys")
 (load-library "abbrevs")
 
-(load-library "jedi")
-
+(load-library "auto-complete-extras")
+(load-library "jedi-extras")
 (load-library "python-extras")
 
 (load-library "html")
