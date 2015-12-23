@@ -11,4 +11,16 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-(package-initialize) ;; You might already have this line
+;; Set the packages to be installed on load.
+(setq package-list
+      '(auto-complete exec-path-from-shell flycheck color-theme-solarized jinja2-mode powerline jedi))
+
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Install the packages.
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))

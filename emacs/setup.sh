@@ -2,22 +2,14 @@ set -e
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-FILES=".emacs .emacs.d"
+DEST_ROOT="$HOME"
+REPO_FILES=".emacs .emacs.d/lisp .emacs.d/modes"
 
-for filename in $FILES; do
-    REPO_VERSION=$DIR/$filename
-    LOCAL_VERSION=$HOME/$filename
-
-    if [ "$LOCAL_VERSION" -ot "$REPO_VERSION" ]; then
-        cp -R $REPO_VERSION $LOCAL_VERSION
-        echo "Copied $REPO_VERSION to $LOCAL_VERSION"
+for repo_filename in $REPO_FILES; do
+    if [ -e "$DEST_ROOT/$repo_filename" ]; then
+        echo "\"$DEST_ROOT/$repo_filename\" exists already."
     else
-        echo "Local version is newer than repo version!"
-        read -p "Overwrite $LOCAL_VERSION with $REPO_VERSION? [yN] " yn
-        case $yn in
-            [Yy]* ) cp -R $REPO_VERSION $LOCAL_VERSION; echo "Copied $REPO_VERSION to $LOCAL_VERSION"
-                    ;;
-            *) exit;;
-        esac
+        ln -s $(pwd)/$repo_filename $DEST_ROOT/$repo_filename
+        echo "Sym linked $DEST_ROOT/$repo_filename"
     fi
 done
