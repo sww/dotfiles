@@ -9,6 +9,7 @@
 (load-library "style")
 (load-library "keys")
 (load-library "abbrevs")
+(load-library "functions")
 
 (load-library "auto-complete-extras")
 (load-library "jedi-extras")
