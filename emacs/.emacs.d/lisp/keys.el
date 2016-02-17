@@ -47,3 +47,9 @@
  (set-window-buffer w2 b1)
  (set-window-start w1 s2)
  (set-window-start w2 s1)))))
+
+;; http://emacsredux.com/blog/2013/03/30/go-back-to-previous-window/
+;; Go backwards with C-x O when there are more than two windows split.
+(global-set-key (kbd "C-x O") (lambda ()
+                                (interactive)
+                                (other-window -1)))
