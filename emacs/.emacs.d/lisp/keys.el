@@ -6,6 +6,7 @@
 (global-set-key [C-tab] 'other-window)
 (global-set-key "\M-p" 'next-buffer)
 (global-set-key "\M-n" 'previous-buffer)
+(global-set-key "\M-o" 'mode-line-other-buffer)
 (global-set-key "\C-u" 'kill-before)
 (global-set-key "\M-^" 'replace-string)
 (global-set-key "\C-x\C-b" 'buffer-menu)
