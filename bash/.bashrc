@@ -53,3 +53,22 @@ fi
 function f() {
     find . -name "$1" -print0 | xargs -0 grep -nH --color "${@:2}"
 }
+
+function up() {
+    # Goes up a directory n times.
+    if [ -z "$1" ]
+    then
+        n=1
+    else
+        n=$1
+    fi
+
+    cmd=""
+
+    for (( i=0; i<n; i++))
+    do
+        cmd+="../"
+    done
+
+    cd $cmd
+}
