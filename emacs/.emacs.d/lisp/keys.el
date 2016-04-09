@@ -9,7 +9,9 @@
 (global-set-key "\M-o" 'mode-line-other-buffer)
 (global-set-key "\C-u" 'kill-before)
 (global-set-key "\M-^" 'replace-string)
-(global-set-key "\C-x\C-b" 'buffer-menu)
+(global-set-key "\C-x\C-b" 'bs-show)
+(global-set-key (kbd "\C-x B") 'buffer-menu)
+(global-set-key (kbd "\C-x g") 'magit-status)
 
 (setq delete-active-region 0)
 
@@ -38,3 +40,11 @@
 (global-set-key (kbd "C-x O") (lambda ()
                                 (interactive)
                                 (other-window -1)))
+
+
+;; https://www.emacswiki.org/emacs/SwitchingBuffers#toc5.
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(global-set-key (kbd "C-x j") 'switch-to-previous-buffer)

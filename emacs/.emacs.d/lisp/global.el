@@ -5,3 +5,5 @@
 (setq make-backup-files nil) ;; Don't leave ~ backup files everywhere.
 
 (setq ring-bell-function 'ignore) ;; No visual nor audio bell.
+
+(icomplete-mode 1) ;; Suggestions.
