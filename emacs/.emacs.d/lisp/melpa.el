@@ -13,7 +13,18 @@
 
 ;; Set the packages to be installed on load.
 (setq package-list
-      '(auto-complete exec-path-from-shell flycheck color-theme-solarized jinja2-mode powerline jedi magit))
+    '(auto-complete
+      helm
+      helm-ls-git
+      exec-path-from-shell
+      flycheck
+      color-theme-solarized
+      jinja2-mode
+      powerline
+      jedi
+      magit
+      )
+    )
 
 (package-initialize)
 

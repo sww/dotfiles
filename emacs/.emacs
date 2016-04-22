@@ -16,6 +16,7 @@
 (load-library "python-extras")
 (load-library "html-extras")
 (load-library "flycheck-extras")
+(load-library "helm-extras")
 
 ;; So emacs picks up my $PATH env var.
 (when (memq window-system '(mac ns))
