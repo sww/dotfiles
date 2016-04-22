@@ -12,4 +12,5 @@
     ("consoel" "console " nil 2)
     ("NOne" "None" nil 2)
     ("nOne" "None" nil 2)
+    ("slef" "self" nil 2)
    ))
