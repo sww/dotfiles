@@ -9,7 +9,7 @@
 (global-set-key "\M-o" 'mode-line-other-buffer)
 (global-set-key "\C-u" 'kill-before)
 (global-set-key "\M-^" 'replace-string)
-(global-set-key "\C-x\C-b" 'bs-show)
+(global-set-key "\C-x\C-b" 'helm-mini)
 (global-set-key (kbd "\C-x B") 'buffer-menu)
 (global-set-key (kbd "\C-x g") 'magit-status)
 
