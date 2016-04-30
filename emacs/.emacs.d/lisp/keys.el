@@ -1,6 +1,5 @@
 ;; Keyboard shortcut.
 
-(global-set-key [f5] 'goto-line)
 (global-set-key [f8] 'comment-region)
 (global-set-key [f9] 'uncomment-region)
 (global-set-key [C-tab] 'other-window)
@@ -12,6 +11,7 @@
 (global-set-key "\C-x\C-b" 'helm-mini)
 (global-set-key (kbd "\C-x B") 'buffer-menu)
 (global-set-key (kbd "\C-x g") 'magit-status)
+(global-set-key (kbd "\C-x \C-d") 'helm-browse-project)
 
 (setq delete-active-region 0)
 
