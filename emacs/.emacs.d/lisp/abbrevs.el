@@ -9,7 +9,7 @@
     ("itmes" "items" nil 2)
     ("nto" "not" nil 2)
     ("teh" "the" nil 2)
-    ("consoel" "console " nil 2)
+    ("consoel" "console" nil 2)
     ("NOne" "None" nil 2)
     ("nOne" "None" nil 2)
     ("slef" "self" nil 2)
