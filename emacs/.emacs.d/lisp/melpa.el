@@ -23,7 +23,7 @@
       powerline
       jedi
       magit
-      dumb-jump-mode
+      dumb-jump
       )
     )
 
