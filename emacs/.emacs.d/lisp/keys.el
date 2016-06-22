@@ -2,6 +2,7 @@
 
 (global-set-key [f8] 'comment-region)
 (global-set-key [f9] 'uncomment-region)
+(global-set-key [f10] nil) ;; Prevent the default action -- mainly for OSX.
 (global-set-key [C-tab] 'other-window)
 (global-set-key "\M-p" 'next-buffer)
 (global-set-key "\M-n" 'previous-buffer)
