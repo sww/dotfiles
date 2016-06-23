@@ -24,6 +24,7 @@
       jedi
       magit
       dumb-jump
+      which-key
       )
     )
 
