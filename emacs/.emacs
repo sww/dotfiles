@@ -4,8 +4,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/") ;; Custom settings.
 (add-to-list 'load-path "~/.emacs.d/modes/") ;; Extra stuff to load for certain modes.
 
-(load-library "global")
 (load-library "melpa")
+(load-library "global")
 (load-library "style")
 (load-library "keys")
 (load-library "abbrevs")
