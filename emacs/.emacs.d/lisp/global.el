@@ -7,5 +7,3 @@
 (setq ring-bell-function 'ignore) ;; No visual nor audio bell.
 
 (icomplete-mode 1) ;; Suggestions.
-
-(dumb-jump-mode)
