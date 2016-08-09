@@ -13,6 +13,7 @@
 (global-set-key (kbd "\C-x B") 'buffer-menu)
 (global-set-key (kbd "\C-x g") 'magit-status)
 (global-set-key (kbd "\C-x \C-d") 'helm-browse-project)
+(global-set-key (kbd "\C-x K") 'close-and-kill-this-pane)
 
 (setq delete-active-region 0)
 
