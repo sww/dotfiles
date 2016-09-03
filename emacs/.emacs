@@ -18,6 +18,7 @@
 (load-library "flycheck-extras")
 (load-library "helm-extras")
 (load-library "dumb-jump-extras")
+(load-library "go-extras")
 
 ;; So emacs picks up my $PATH env var.
 (when (memq window-system '(mac ns))
