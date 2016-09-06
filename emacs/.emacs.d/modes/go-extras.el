@@ -5,3 +5,4 @@
 (setq gofmt-args nil)
 
 (add-hook 'go-mode-hook 'flycheck-mode)
+(add-hook 'go-mode-hook 'which-function-mode)
