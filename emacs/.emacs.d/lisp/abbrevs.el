@@ -6,6 +6,7 @@
     ("reuqest" "request" nil 2)
     ("tiem" "time" nil 2)
     ("datetiem" "datetime" nil 2)
+    ("itme" "item" nil 2)
     ("itmes" "items" nil 2)
     ("nto" "not" nil 2)
     ("teh" "the" nil 2)
