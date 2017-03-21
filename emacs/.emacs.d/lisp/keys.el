@@ -52,3 +52,12 @@
       (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 (global-set-key (kbd "C-x j") 'switch-to-previous-buffer)
+
+;; http://stackoverflow.com/a/6133921.
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument ARG, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))
+
+(define-key minibuffer-local-map [M-backspace] 'backward-delete-word)
