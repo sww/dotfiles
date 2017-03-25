@@ -1,0 +1,10 @@
+[user]
+  email = sean@decrypted.org
+  name = Sean Wang
+[color]
+  diff = always
+[push]
+  default = matching
+[diff]
+  compactionHeuristic = true
+  algorithm = patience
