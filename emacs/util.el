@@ -1,3 +1,37 @@
+;; Utility functions.
+
+(defun kill-before ()
+  (interactive)
+  (kill-line 0)
+)
+
+(defun nm ()
+  (interactive)
+  (insert "if __name__ == '__main__':\n    "))
+
+(defun pypdb ()
+  (interactive)
+  (insert "import pdb; pdb.set_trace()"))
+
+(defun iwb ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
+
+;; https://www.emacswiki.org/emacs/SwitchingBuffers#toc5.
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+;; http://stackoverflow.com/a/6133921.
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument ARG, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))
+
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file.
 (defun swap-windows ()
  "If you have 2 windows, it swaps them." (interactive) (cond ((not (= (count-windows) 2)) (message "You need exactly 2 windows to do this."))
@@ -12,13 +46,6 @@
  (set-window-buffer w2 b1)
  (set-window-start w1 s2)
  (set-window-start w2 s1)))))
-
-;; From http://www.emacswiki.org/emacs-test/BuildTags.
-(defun create-tags (dir-name)
-  "Create tags file."
-  (interactive "DDirectory: ")
-  (shell-command
-   (format "ctags --exclude=.git --exclude=venv --exclude=node_modules -e -R %s" (directory-file-name dir-name))))
 
 ;; http://rejeep.github.io/emacs/elisp/2010/03/26/rename-file-and-buffer-in-emacs.html.
 (defun rename-this-buffer-and-file ()
