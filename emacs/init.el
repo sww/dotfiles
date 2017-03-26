@@ -74,7 +74,9 @@
 (setq tab-width 1)
 (setq tab-stop-list '(4 8 12 16))
 (setq mac-command-modifier 'meta)
-(setq abbrev-mode t)
+
+(setq-default abbrev-mode t)
+(setq abbrev-file-name (concat (file-name-as-directory emacsdir) "abbrevs.el"))
 
 (column-number-mode 1)
 (line-number-mode 1)
