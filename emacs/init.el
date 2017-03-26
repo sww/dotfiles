@@ -137,6 +137,10 @@
 
 ;; Package stuff.
 
+(use-package ace-window
+  :bind (("M-g b" . ace-window))
+  :ensure)
+
 (use-package auto-complete
   :config
   (setq-default ac-sources '(ac-source-words-in-buffer))
