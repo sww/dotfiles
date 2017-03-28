@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #############################################
 # Misc.
 #############################################
@@ -43,6 +45,13 @@ if [ "$PS1" ]; then
     fi
     export PS1=$PS1
 fi
+
+
+# Python.
+if [ -e "$HOME/.pythonrc" ]; then
+    export PYTHONSTARTUP=$HOME/.pythonrc
+fi
+
 
 #############################################
 # Functions.
