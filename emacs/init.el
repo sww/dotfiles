@@ -123,6 +123,8 @@
                                 (other-window -1)))
 
 (global-set-key (kbd "C-x j") 'switch-to-previous-buffer)
+
+;; Do not add the deleted word to the kill ring if in the minibuffer.
 (define-key minibuffer-local-map [M-backspace] 'backward-delete-word)
 
 ;; HTML.
