@@ -1,5 +1,17 @@
 #!/bin/bash
 
+case $OSTYPE in
+    darwin15|darwin16)
+        if [ -f $(brew --prefix)/etc/bash_completion ]; then
+            . $(brew --prefix)/etc/bash_completion
+        fi
+
+        if [ -d /usr/local/bin ]; then
+            PATH=$PATH:/usr/local/bin
+        fi
+    ;;
+esac
+
 #############################################
 # Misc.
 #############################################
