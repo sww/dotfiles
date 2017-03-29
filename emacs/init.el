@@ -155,6 +155,10 @@
   :ensure)
 
 (use-package counsel
+  :config
+  (cond ((executable-find "rg") (global-set-key (kbd "M-s f") 'counsel-rg))
+        ((executable-find "ag") (global-set-key (kbd "M-s f") 'counsel-ag))
+        (global-set-key (kbd "M-s f") 'counsel-grep))
   :bind
   (("C-x C-d" . counsel-git))
   (("M-x" . counsel-M-x))
