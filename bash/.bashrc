@@ -16,8 +16,8 @@ esac
 # Misc.
 #############################################
 
-export EDITOR="emacs -no-site-file"
-export VISUAL="emacs -no-site-file"
+export EDITOR="emacs -q"
+export VISUAL="emacs -q"
 alias df='df -h'
 alias ls='ls -G'
 alias ll='ls -Gl'
