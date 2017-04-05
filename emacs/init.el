@@ -65,8 +65,6 @@
 (load-theme 'solarized t)
 
 (setq-default indent-tabs-mode nil)
-(setq tab-width 1)
-(setq tab-stop-list '(4 8 12 16))
 (setq mac-command-modifier 'meta)
 
 (setq-default abbrev-mode t)
