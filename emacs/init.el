@@ -188,8 +188,8 @@
 (use-package ivy
   :init
   (ivy-mode 1)
-  :bind
-  (("C-x C-b" . ivy-switch-buffer))
+  :bind (("C-x C-b" . ivy-switch-buffer)
+         ("C-c C-r" . ivy-resume))
   :ensure)
 
 (use-package jedi
