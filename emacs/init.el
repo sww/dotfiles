@@ -47,12 +47,6 @@
 (setq initial-scratch-message "") ;; Empty scratch buffer.
 (setq inhibit-startup-message t) ;; No welcome buffer.
 
-(icomplete-mode t) ;; Suggestions.
-;; Set the max height of the matches in the minibuffer.
-(setq icomplete-prospects-height 1)
-;; Separator character between suggestions.
-(setq icomplete-separator "  ")
-
 ;; Settings for the look and feel of emacs.
 
 (custom-set-variables
@@ -194,6 +188,8 @@
   :ensure)
 
 (use-package ivy
+  :init
+  (ivy-mode 1)
   :bind
   (("C-x C-b" . ivy-switch-buffer))
   :ensure)
