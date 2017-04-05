@@ -151,9 +151,8 @@
   (cond ((executable-find "rg") (global-set-key (kbd "M-s f") 'counsel-rg))
         ((executable-find "ag") (global-set-key (kbd "M-s f") 'counsel-ag))
         (global-set-key (kbd "M-s f") 'counsel-grep))
-  :bind
-  (("C-x C-d" . counsel-git))
-  (("M-x" . counsel-M-x))
+  :bind (("C-x C-d" . counsel-git)
+         ("M-x" . counsel-M-x))
   :ensure)
 
 (use-package dumb-jump
@@ -205,13 +204,12 @@
   :ensure)
 
 (use-package magit
-  :bind
-  (("C-x g" . magit-status))
+  :bind (("C-x g" . magit-status))
   :ensure)
 
 (use-package swiper
-  :bind (("C-s" . swiper))
-  :bind (("M-s s" . swiper-all))
+  :bind (("C-s" . swiper)
+         ("M-s s" . swiper-all))
   :ensure)
 
 (use-package which-key
