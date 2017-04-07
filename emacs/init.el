@@ -197,7 +197,7 @@
   (add-hook 'python-mode-hook 'jedi:ac-setup)
   :config
   (setq jedi:complete-on-dot t)
-  (setq jedi:get-in-function-call-delay 1500) ;; Delay in showing the tooltip.
+  (setq jedi:get-in-function-call-delay 300) ;; Delay in showing the tooltip.
   (setq jedi:environment-virtualenv
         (list "virtualenv" "--system-site-packages"))
   :bind (("M-." . jedi:complete))
