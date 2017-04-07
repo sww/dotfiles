@@ -2,7 +2,7 @@
   email = sean@decrypted.org
   name = Sean Wang
 [color]
-  diff = always
+  diff = auto
 [push]
   default = matching
 [diff]
