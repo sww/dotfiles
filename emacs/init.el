@@ -207,6 +207,9 @@
 
 (use-package magit
   :bind (("C-x g" . magit-status))
+  :config
+  ;; Display the magit buffer in the current buffer.
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   :ensure)
 
 (use-package swiper
