@@ -6,6 +6,11 @@ case $OSTYPE in
             PATH=$PATH:/usr/local/bin
         fi
 
+        if [ ! command -v brew > /dev/null 2>&1 ]; then
+            # If brew isn't installed, then skip all the brew setup.
+            break
+        fi
+
         if [ -f $(brew --prefix)/etc/bash_completion ]; then
             . $(brew --prefix)/etc/bash_completion
         fi
