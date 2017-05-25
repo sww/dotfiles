@@ -18,7 +18,6 @@ esac
 
 export EDITOR="emacs -q"
 export VISUAL="emacs -q"
-alias df='df -h'
 alias ls='ls -G'
 alias ll='ls -Gl'
 
@@ -68,12 +67,6 @@ fi
 #############################################
 # Functions.
 #############################################
-
-# find pattern in file
-# Usage: f filename pattern
-function f() {
-    find . -name "$1" -print0 | xargs -0 grep -nH --color "${@:2}"
-}
 
 function up() {
     # Goes up a directory n times.
