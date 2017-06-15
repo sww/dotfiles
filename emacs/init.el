@@ -150,11 +150,12 @@
 
 (use-package counsel
   :config
-  (cond ((executable-find "rg") (global-set-key (kbd "M-s f") 'counsel-rg))
-        ((executable-find "ag") (global-set-key (kbd "M-s f") 'counsel-ag))
-        (global-set-key (kbd "M-s f") 'counsel-grep))
+  (fset 'counsel-grepper (cond ((executable-find "rg") 'counsel-rg)
+                               ((executable-find "ag") 'counsel-ag)
+                               ('counsel-grep)))
   :bind (("C-x C-d" . counsel-git)
-         ("M-x" . counsel-M-x))
+         ("M-x" . counsel-M-x)
+         ("M-s f" . counsel-grepper))
   :ensure)
 
 (use-package dumb-jump
