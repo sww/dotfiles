@@ -6,7 +6,8 @@
 
 ;; Set the path from $PATH.
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH")
 
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
