@@ -168,6 +168,12 @@
          ("C-M-g" . dumb-jump-go))
   :ensure)
 
+(use-package elpy
+  :init
+  (package-initialize)
+  (elpy-enable)
+  :ensure)
+
 (use-package flycheck
   :init
   (add-hook 'go-mode-hook 'flycheck-mode)
