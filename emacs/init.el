@@ -12,10 +12,10 @@
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
   (file-name-directory
-    (replace-regexp-in-string
-       (regexp-quote "\n") ""
-       (shell-command-to-string
-       "ls -al ~/.emacs.d/init.el | awk '{print $NF}'"))))
+   (replace-regexp-in-string
+    (regexp-quote "\n") ""
+    (shell-command-to-string
+     "ls -al ~/.emacs.d/init.el | awk '{print $NF}'"))))
 
 (load-file (concat (file-name-as-directory emacsdir) "util.el"))
 
@@ -95,7 +95,7 @@
 
 ;; Show the buffer's full file path in the title.
 (setq frame-title-format '((buffer-file-name "%f"
-                           (dired-directory dired-directory "%b"))))
+                                             (dired-directory dired-directory "%b"))))
 
 (global-set-key [f8] 'comment-region)
 (global-set-key [f9] 'uncomment-region)
@@ -126,7 +126,7 @@
 (defun my-html-mode-hooks ()
   "Set ups for how I like html mode."
   (auto-fill-mode 0) ;; Prevents auto indenting.
-)
+  )
 (add-hook 'html-mode-hook 'my-html-mode-hooks)
 
 ;; Python.
