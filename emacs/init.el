@@ -138,15 +138,36 @@
   :bind (("M-g b" . ace-window))
   :ensure)
 
-(use-package auto-complete
-  :config
-  (setq-default ac-sources '(ac-source-words-in-buffer))
-  :ensure)
-
 (use-package avy
   :bind (("M-g c" . avy-goto-char-timer)
          ("M-g l" . avy-goto-line)
          ("M-g w" . avy-goto-word-0))
+  :ensure)
+
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (global-company-mode)
+  (custom-set-faces
+   '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
+   '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown")))))
+  :bind (:map company-active-map
+              ("<tab>" . company-complete-common-or-cycle)
+              ("<S-tab>" . company-select-previous)
+              ("TAB" . company-complete-common-or-cycle)
+              ("S-TAB" . company-select-previous))
+  :ensure)
+
+(use-package company-go
+  :ensure)
+
+(use-package company-jedi
+  :config
+  (defun my/python-mode-hook ()
+    (add-to-list 'company-backends 'company-jedi))
+  (add-hook 'python-mode-hook 'my/python-mode-hook)
+  :bind (("M-." . company-jedi))
   :ensure)
 
 (use-package counsel
@@ -199,18 +220,6 @@
   (ivy-mode 1)
   :bind (("C-x C-b" . ivy-switch-buffer)
          ("C-c r" . ivy-resume))
-  :ensure)
-
-(use-package jedi
-  :init
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (add-hook 'python-mode-hook 'jedi:ac-setup)
-  :config
-  (setq jedi:complete-on-dot t)
-  (setq jedi:get-in-function-call-delay 300) ;; Delay in showing the tooltip.
-  (setq jedi:environment-virtualenv
-        (list "virtualenv" "--system-site-packages"))
-  :bind (("M-." . jedi:complete))
   :ensure)
 
 (use-package magit
