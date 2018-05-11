@@ -170,6 +170,11 @@
   :bind (("M-." . company-jedi))
   :ensure)
 
+(use-package company-statistics
+  :config
+  (add-hook 'after-init-hook 'company-statistics-mode)
+  :ensure)
+
 (use-package counsel
   :config
   (fset 'counsel-grepper (cond ((executable-find "rg") 'counsel-rg)
