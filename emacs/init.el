@@ -235,6 +235,11 @@
   (setq magit-save-repository-buffers nil) ;; Don't ask to save buffers.
   :ensure)
 
+(use-package quake
+  :load-path "lisp/quake"
+  :bind (("C-`" . quake))
+  :defer t)
+
 (use-package swiper
   :bind (("C-s" . swiper)
          ("M-s s" . swiper-all))
