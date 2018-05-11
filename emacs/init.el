@@ -233,6 +233,24 @@
   ;; Display the magit buffer in the current buffer.
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (setq magit-save-repository-buffers nil) ;; Don't ask to save buffers.
+  ;; Set the order of sections in the magit-status buffer.
+  (setq magit-status-sections-hook
+        '(magit-insert-status-headers
+          magit-insert-merge-log
+          magit-insert-rebase-sequence
+          magit-insert-am-sequence
+          magit-insert-sequencer-sequence
+          magit-insert-bisect-output
+          magit-insert-bisect-rest
+          magit-insert-bisect-log
+          magit-insert-unstaged-changes
+          magit-insert-staged-changes
+          magit-insert-untracked-files
+          magit-insert-stashes
+          magit-insert-unpulled-from-upstream
+          magit-insert-unpulled-from-pushremote
+          magit-insert-unpushed-to-upstream-or-recent
+          magit-insert-unpushed-to-pushremote))
   :ensure)
 
 (use-package quake
