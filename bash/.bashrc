@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case $OSTYPE in
-    darwin15|darwin16)
+    darwin* )
         if [ -d /usr/local/bin ]; then
             PATH=$PATH:/usr/local/bin
         fi
