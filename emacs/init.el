@@ -275,4 +275,7 @@
 (use-package which-key
   :ensure)
 
+(use-package yasnippet
+  :ensure)
+
 ;;; init.el ends here
