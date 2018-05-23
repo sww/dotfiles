@@ -253,6 +253,15 @@
           magit-insert-unpushed-to-pushremote))
   :ensure)
 
+(use-package multiple-cursors
+  :bind
+  (("C-S-c C-S-c" . 'mc/edit-lines)
+   ("C->" . 'mc/mark-next-like-this)
+   ("C-<" . 'mc/mark-previous-like-this)
+   ("C-c C-<" . 'mc/mark-all-like-this)
+   ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
+  :ensure)
+
 (use-package quake
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
