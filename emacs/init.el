@@ -48,7 +48,7 @@
 (setq initial-scratch-message "") ;; Empty scratch buffer.
 (setq inhibit-startup-message t) ;; No welcome buffer.
 
-(setq echo-keystrokes 0.4) ;; Interval for echoing the keystroke in the minibuffer.
+(setq echo-keystrokes 0.01) ;; Interval for echoing the keystroke in the minibuffer.
 
 ;; Settings for the look and feel of emacs.
 
