@@ -200,6 +200,9 @@
   (elpy-enable)
   :ensure)
 
+(use-package free-keys
+  :ensure)
+
 (use-package flycheck
   :init
   (add-hook 'go-mode-hook 'flycheck-mode)
