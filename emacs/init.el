@@ -75,8 +75,10 @@
 
 (column-number-mode 1)
 (line-number-mode 1)
-(global-linum-mode)
 (show-paren-mode 1)
+(if (version< emacs-version "26.1")
+    (global-linum-mode)
+  (global-display-line-numbers-mode))
 
 (require 'powerline)
 (powerline-default-theme)
