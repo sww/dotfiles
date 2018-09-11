@@ -173,6 +173,12 @@
   :bind (("M-." . company-jedi))
   :ensure)
 
+(use-package company-quickhelp
+  :config
+  (eval-after-load 'company
+    '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+  :ensure)
+
 (use-package company-statistics
   :config
   (add-hook 'after-init-hook 'company-statistics-mode)
