@@ -151,6 +151,7 @@
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (global-company-mode)
+  (setq company-show-numbers t)
   (custom-set-faces
    '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
    '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown")))))
