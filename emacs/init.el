@@ -201,6 +201,9 @@
   :init
   (package-initialize)
   (elpy-enable)
+  :config
+  ;; elpy enables flymake by default.
+  (setq elpy-modules (remove 'elpy-module-flymake elpy-modules))
   :ensure)
 
 (use-package free-keys
