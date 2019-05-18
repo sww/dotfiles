@@ -141,6 +141,8 @@
   :ensure)
 
 (use-package avy
+  :config
+  (setq avy-style 'words)
   :bind (("M-g c" . avy-goto-char-timer)
          ("M-g l" . avy-goto-line)
          ("M-g w" . avy-goto-word-0))
