@@ -151,7 +151,6 @@
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
-  :config
   (global-company-mode)
   (setq company-show-numbers t)
   (custom-set-faces
