@@ -4,11 +4,6 @@
 
 (package-initialize)
 
-;; Set the path from $PATH.
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
-
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
   (file-name-directory
@@ -65,8 +60,6 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
-(load-theme 'solarized t)
-
 (setq-default indent-tabs-mode nil)
 (setq mac-command-modifier 'meta)
 
@@ -79,9 +72,6 @@
 (if (version< emacs-version "26.1")
     (global-linum-mode)
   (global-display-line-numbers-mode))
-
-(require 'powerline)
-(powerline-default-theme)
 
 ;; Custom colors for flymake.
 (custom-set-faces
@@ -146,6 +136,13 @@
   :bind (("M-g c" . avy-goto-char-timer)
          ("M-g l" . avy-goto-line)
          ("M-g w" . avy-goto-word-0))
+  :ensure)
+
+(use-package color-theme-solarized
+  :init
+  (load-theme 'solarized t)
+  ;; Change this last since the theme will change the cursor color.
+  (set-cursor-color "orange")
   :ensure)
 
 (use-package company
@@ -213,6 +210,14 @@
   (setq elpy-modules (remove 'elpy-module-flymake elpy-modules))
   :ensure)
 
+(use-package exec-path-from-shell
+  :init
+  ;; Set the path from $PATH.
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "GOPATH"))
+  :ensure)
+
 (use-package free-keys
   :ensure)
 
@@ -276,6 +281,11 @@
    ("C-<" . 'mc/mark-previous-like-this)
    ("C-c C-<" . 'mc/mark-all-like-this)
    ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
+  :ensure)
+
+(use-package powerline
+  :init
+  (powerline-default-theme)
   :ensure)
 
 (use-package quake
