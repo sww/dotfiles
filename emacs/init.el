@@ -14,6 +14,11 @@
 
 (load-file (concat (file-name-as-directory emacsdir) "util.el"))
 
+;; Load any local configs in the `emacsdic/local.el` file.
+(let ((local-config-file (concat (file-name-as-directory emacsdir) "local.el")))
+  (when (file-exists-p local-config-file)
+    (load-file local-config-file)))
+
 ;; Setup MELPA.
 (when (>= emacs-major-version 24)
   (require 'package)
