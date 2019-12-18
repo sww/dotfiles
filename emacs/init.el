@@ -128,6 +128,8 @@
 
 ;; Python.
 (add-hook 'python-mode-hook 'which-function-mode)
+;; Set the indent level to only be one on newlines.
+(set-variable 'python-indent-def-block-scale 1)
 
 ;; Package stuff.
 
