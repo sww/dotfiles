@@ -145,9 +145,9 @@
          ("M-g w" . avy-goto-word-0))
   :ensure)
 
-(use-package color-theme-solarized
+(use-package solarized-theme
   :init
-  (load-theme 'solarized t)
+  (load-theme 'solarized-light t)
   ;; Change this last since the theme will change the cursor color.
   (set-cursor-color "orange")
   :ensure)
