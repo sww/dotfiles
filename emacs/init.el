@@ -38,6 +38,11 @@
 
 ;; Global-ish configs -- anything that affects other packages or global emacs settings.
 
+;; Have the custom variables live in <user-emacs-directory>/custom.el.
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+   (when (file-exists-p custom-file)
+     (load custom-file))
+
 (delete-selection-mode) ;; For being able to C-d selected lines.
 (setq delete-active-region 0)
 
