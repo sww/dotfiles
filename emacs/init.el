@@ -279,6 +279,7 @@
           magit-insert-unpulled-from-pushremote
           magit-insert-unpushed-to-upstream-or-recent
           magit-insert-unpushed-to-pushremote))
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   :ensure)
 
 (use-package multiple-cursors
