@@ -93,9 +93,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flymake-errline ((((class color)) (:foreground "OrangeRed" :underline "Red"))))
- '(flymake-warnline ((((class color)) (:foreground nil :underline "LightPink2")))))
-
 ;; Change this last since the other themes probably change the cursor color.
 (set-cursor-color "orange")
 
