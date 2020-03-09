@@ -93,8 +93,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; Change this last since the other themes probably change the cursor color.
-(set-cursor-color "orange")
+ '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
+ '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
+ '(flymake-errline ((((class color)) (:foreground "OrangeRed" :underline "Red"))) t)
+ '(flymake-warnline ((((class color)) (:foreground nil :underline "LightPink2"))) t))
 
 ;; Show the buffer's full file path in the title.
 (setq frame-title-format '((buffer-file-name "%f"
