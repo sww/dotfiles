@@ -16,4 +16,5 @@
     ("slef" "self" nil 2)
     ("fitler" "filter" nil 2)
     ("queyr" "query" nil 2)
+    ("self0" "self)" nil 2)
    ))
