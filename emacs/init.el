@@ -36,6 +36,10 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; Install use-package if not already installed.
+(when (eq (require 'use-package nil 'noerror) nil)
+  (package-install 'use-package))
+
 ;; Global-ish configs -- anything that affects other packages or global emacs settings.
 
 ;; Have the custom variables live in <user-emacs-directory>/custom.el.
