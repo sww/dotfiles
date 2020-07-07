@@ -3,7 +3,7 @@
 case $OSTYPE in
     darwin* )
         if [ -d /usr/local/bin ]; then
-            PATH=$PATH:/usr/local/bin
+            PATH=/usr/local/bin:$PATH
         fi
 
         if [ ! command -v brew > /dev/null 2>&1 ]; then
