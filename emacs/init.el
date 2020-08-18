@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
