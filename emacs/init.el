@@ -152,13 +152,6 @@
          ("M-g w" . avy-goto-word-0))
   :ensure)
 
-(use-package solarized-theme
-  :init
-  (load-theme 'solarized-light t)
-  ;; Change this last since the theme will change the cursor color.
-  (set-cursor-color "orange")
-  :ensure)
-
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
@@ -234,9 +227,6 @@
     (exec-path-from-shell-copy-env "GOPATH"))
   :ensure)
 
-(use-package free-keys
-  :ensure)
-
 (use-package flycheck
   :init
   (add-hook 'go-mode-hook 'flycheck-mode)
@@ -246,6 +236,9 @@
   (set-face-attribute 'flycheck-warning nil :foreground nil :underline "lightpink2")
   (setq flycheck-highlighting-mode 'lines)
   (setq flycheck-display-errors-delay 0.15)
+  :ensure)
+
+(use-package free-keys
   :ensure)
 
 (use-package go-mode
@@ -309,6 +302,13 @@
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
   :defer t)
+
+(use-package solarized-theme
+  :init
+  (load-theme 'solarized-light t)
+  ;; Change this last since the theme will change the cursor color.
+  (set-cursor-color "orange")
+  :ensure)
 
 (use-package swiper
   :bind (("C-s" . swiper)
