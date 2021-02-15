@@ -317,6 +317,8 @@
   :ensure)
 
 (use-package yasnippet
+  :init
+  (yas-global-mode 1)
   :ensure)
 
 ;;; init.el ends here
