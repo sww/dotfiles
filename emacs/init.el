@@ -167,11 +167,12 @@
   (custom-set-faces
    '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
    '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown")))))
-  :bind (:map company-active-map
-              ("<tab>" . company-complete-common-or-cycle)
-              ("<S-tab>" . company-select-previous)
-              ("TAB" . company-complete-common-or-cycle)
-              ("S-TAB" . company-select-previous))
+  :bind (("C-." . company-complete)
+         :map company-active-map
+         ("<tab>" . company-complete-common-or-cycle)
+         ("<S-tab>" . company-select-previous)
+         ("TAB" . company-complete-common-or-cycle)
+         ("S-TAB" . company-select-previous))
   :ensure)
 
 (use-package company-go
@@ -182,7 +183,6 @@
   (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
   (add-hook 'python-mode-hook 'my/python-mode-hook)
-  :bind (("M-." . company-jedi))
   :ensure)
 
 (use-package company-quickhelp
