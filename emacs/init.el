@@ -110,7 +110,7 @@
 (global-set-key "\M-o" 'mode-line-other-buffer)
 (global-set-key "\C-u" 'kill-before)
 (global-set-key "\M-^" 'replace-string)
-(global-set-key (kbd "\C-x B") 'buffer-menu)
+(global-set-key (kbd "\C-x B") 'ibuffer)
 (global-set-key (kbd "\C-x K") 'close-and-kill-this-pane)
 (global-set-key (kbd "\C-x \C-k") 'kill-this-buffer)
 (global-set-key (kbd "\C-c u") 'universal-argument)
