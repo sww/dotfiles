@@ -192,6 +192,16 @@
          ("M-s f" . counsel-grepper))
   :ensure)
 
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-env-enable-python t)
+  (setq doom-modeline-env-enable-go t)
+  (setq doom-modeline-height 20)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  :ensure)
+
 (use-package dumb-jump
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
@@ -294,11 +304,6 @@
    ("C-<" . 'mc/mark-previous-like-this)
    ("C-c C-<" . 'mc/mark-all-like-this)
    ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
-  :ensure)
-
-(use-package powerline
-  :init
-  (powerline-default-theme)
   :ensure)
 
 (use-package quake
