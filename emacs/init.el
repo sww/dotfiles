@@ -310,6 +310,12 @@
    ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
   :ensure)
 
+(use-package org
+  :config
+  ;; Don't truncate long lines -- enable word wrapping.
+  (setq org-startup-truncated nil)
+  :ensure)
+
 (use-package quake
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
