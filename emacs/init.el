@@ -171,13 +171,6 @@
 (use-package company-go
   :ensure)
 
-(use-package company-jedi
-  :config
-  (defun my/python-mode-hook ()
-    (add-to-list 'company-backends 'company-jedi))
-  (add-hook 'python-mode-hook 'my/python-mode-hook)
-  :ensure)
-
 (use-package company-quickhelp
   :config
   (eval-after-load 'company
@@ -208,15 +201,6 @@
          ("C-M-p" . dumb-jump-back)
          ("C-M-q" . dumb-jump-quick-look)
          ("C-M-g" . dumb-jump-go))
-  :ensure)
-
-(use-package elpy
-  :init
-  (package-initialize)
-  (elpy-enable)
-  :config
-  ;; elpy enables flymake by default.
-  (setq elpy-modules (remove 'elpy-module-flymake elpy-modules))
   :ensure)
 
 (use-package exec-path-from-shell
@@ -255,6 +239,25 @@
   (ivy-mode 1)
   :bind (("C-x C-b" . ivy-switch-buffer)
          ("C-c r" . ivy-resume))
+  :ensure)
+
+(use-package lsp-ivy
+  :ensure)
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred)
+  :ensure)
+
+(use-package lsp-pyright
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred)))
+  :ensure)
+
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
   :ensure)
 
 (use-package magit
