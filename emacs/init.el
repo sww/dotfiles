@@ -144,6 +144,10 @@
   :bind (("M-g b" . ace-window))
   :ensure)
 
+(use-package all-the-icons-ibuffer
+  :init (all-the-icons-ibuffer-mode 1)
+  :ensure)
+
 (use-package avy
   :config
   (setq avy-style 'words)
