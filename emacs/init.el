@@ -26,7 +26,9 @@
   (add-to-list
    'package-archives
    '("melpa" . "https://melpa.org/packages/")
-   t))
+   t)
+  ;; Fixes failed package downloads (from https://emacs.stackexchange.com/a/56067).
+  (custom-set-variables '(gnutls-algorithm-priority "normal:-vers-tls1.3")))
 
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
