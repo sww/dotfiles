@@ -154,6 +154,7 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (global-company-mode)
   (setq company-show-numbers t)
+  (setq company-idle-delay 1)  ;; In seconds.
   (custom-set-faces
    '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
    '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown")))))
