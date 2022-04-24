@@ -62,6 +62,9 @@
 
 ;; Settings for the look and feel of emacs.
 
+(setq menu-bar-mode nil
+      scroll-bar-mode nil
+      tool-bar-mode nil)
 
 (setq-default indent-tabs-mode nil)
 (setq mac-command-modifier 'meta)
