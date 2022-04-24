@@ -166,6 +166,10 @@
          ("S-TAB" . company-select-previous))
   :ensure)
 
+(use-package company-box
+  :hook (company-mode . company-box-mode)
+  :ensure)
+
 (use-package company-go
   :ensure)
 
