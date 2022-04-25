@@ -79,6 +79,9 @@
     (global-linum-mode)
   (global-display-line-numbers-mode))
 
+;; Allow invoking of other commands if in the minibuffer.
+(setq enable-recursive-minibuffers t)
+
 ;; Custom colors for flymake.
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
