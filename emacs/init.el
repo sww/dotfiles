@@ -186,6 +186,17 @@
          ("M-s f" . counsel-grepper))
   :ensure)
 
+(use-package dap-mode
+  :after lsp-mode
+  :config
+  (dap-mode t)
+  (dap-ui-mode t)
+  (dap-tooltip-mode t)
+  (require 'dap-dlv-go)
+  (require 'dap-python)
+  ;; Show the hydra debug commands when stopped on a breakpoint.
+  :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
+  :ensure)
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
