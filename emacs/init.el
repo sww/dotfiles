@@ -261,6 +261,11 @@
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred)
+  :config
+  ;; Set the styles for flycheck's unnecessary and deprecated warnings.
+  (setq lsp-diagnostics-attributes
+        '((unnecessary :underline (:color "DeepSkyBlue" :style line))
+          (deprecated :strike-through t)))
   :ensure)
 
 (use-package lsp-pyright
