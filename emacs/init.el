@@ -356,6 +356,9 @@
 (use-package which-key
   :ensure)
 
+(use-package yaml-mode
+  :ensure)
+
 (use-package yasnippet
   :init
   (yas-global-mode 1)
