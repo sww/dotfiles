@@ -349,6 +349,10 @@
          ("M-s s" . swiper-all))
   :ensure)
 
+(use-package windmove
+  :config
+  (windmove-default-keybindings))
+
 (use-package which-key
   :ensure)
 
