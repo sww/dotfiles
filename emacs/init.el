@@ -227,6 +227,15 @@
   (setq flycheck-display-errors-delay 0.15)
   :ensure)
 
+(use-package flyspell
+  :init
+  ;; Enable spell checking for comments and strings.
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+  :config
+  (custom-set-faces
+   '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
+   '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line)))))))
+
 (use-package free-keys
   :ensure)
 
