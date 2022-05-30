@@ -82,17 +82,6 @@
 ;; Allow invoking of other commands if in the minibuffer.
 (setq enable-recursive-minibuffers t)
 
-;; Custom colors for flymake.
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
- '(company-tooltip-selection ((((class color)) (:foreground "ivory1" :background "SandyBrown"))))
- '(flymake-errline ((((class color)) (:foreground "OrangeRed" :underline "Red"))) t)
- '(flymake-warnline ((((class color)) (:foreground nil :underline "LightPink2"))) t))
-
 ;; Show the buffer's full file path in the title.
 (setq frame-title-format '((buffer-file-name "%f"
                                              (dired-directory dired-directory "%b"))))
@@ -231,8 +220,9 @@
   (add-hook 'go-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
   :config
-  (set-face-attribute 'flycheck-error nil :foreground "OrangeRed" :underline "Red")
-  (set-face-attribute 'flycheck-warning nil :foreground nil :underline "lightpink2")
+  (custom-set-faces
+   '(flycheck-warning ((t (:underline (:color "cyan" :style line)))))
+   '(flycheck-error ((t (:underline (:color "coral3" :style wave))))))
   (setq flycheck-highlighting-mode 'lines)
   (setq flycheck-display-errors-delay 0.15)
   :ensure)
