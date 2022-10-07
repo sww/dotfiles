@@ -270,6 +270,8 @@
   (ivy-mode 1)
   :bind (("C-x C-b" . ivy-switch-buffer)
          ("C-c r" . ivy-resume))
+  :config
+  (setq ivy-use-virtual-buffers t)
   :ensure)
 
 (use-package lsp-ivy
