@@ -175,6 +175,11 @@
 (use-package company-go
   :ensure)
 
+(use-package company-prescient
+  :config
+  (company-prescient-mode)
+  :ensure)
+
 (use-package company-quickhelp
   :config
   (eval-after-load 'company
