@@ -66,6 +66,12 @@
       scroll-bar-mode nil
       tool-bar-mode nil)
 
+(blink-cursor-mode nil)
+(column-number-mode t)
+(delete-selection-mode t)
+(scroll-bar-mode nil)
+(tool-bar-mode nil)
+
 (setq-default indent-tabs-mode nil)
 (setq mac-command-modifier 'meta)
 
