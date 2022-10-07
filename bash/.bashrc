@@ -38,13 +38,17 @@ export GREP_OPTIONS="--color=auto"
 # Colours for bash prompt.
 if [ `command -v tput` ]; then
     red=$(tty -s && tput setaf 1)
-    cyan=$(tty -s && tput setaf 6)
-    blue=$(tty -s && tput setaf 4)
+    green=$(tty -s && tput setaf 2)
     yellow=$(tty -s && tput setaf 3)
+    blue=$(tty -s && tput setaf 4)
+    magenta=$(tty -s && tput setaf 5)
+    cyan=$(tty -s && tput setaf 6)
+    white=$(tty -s && tput setaf 7)
     norm=$(tty -s && tput sgr0)
+    purple=$(tty -s && tput setaf 147)
 else
     red="\033[1;31m";
-    purp="\033[1;35m";
+    purple="\033[1;35m";
     cyan="\033[1;36m";
     blue="\033[1;34m";
     yellow="\033[1;33m";
@@ -53,11 +57,11 @@ fi
 
 if [ "$PS1" ]; then
     if [[ $UID -eq 0 ]]; then
-        # you are root, set red colour prompt
-        PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w #\\[$(tput sgr0)\\]"
+        # If logged in as root, set red colour prompt.
+        PS1="\\[$red\\]\\u@\\h:\\w #\\[$(tput sgr0)\\]"
     else
         # normal
-        PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\w\[$norm\]\$ "
+        PS1="\[$cyan\]\u\[$norm\]@\[$blue\]\h:\[$purple\]\w\[$norm\]\$ "
     fi
     export PS1=$PS1
 fi
