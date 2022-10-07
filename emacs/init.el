@@ -34,7 +34,7 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-(unless package-archive-contents
+(when (not package-archive-contents)
   (package-refresh-contents))
 
 ;; Install use-package if not already installed.
