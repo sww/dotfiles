@@ -5,6 +5,10 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
   (file-name-directory
