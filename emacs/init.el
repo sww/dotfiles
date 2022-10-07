@@ -139,6 +139,10 @@
   :init (all-the-icons-ibuffer-mode 1)
   :ensure)
 
+(use-package all-the-icons-ivy-rich
+  :init (all-the-icons-ivy-rich-mode 1)
+  :ensure)
+
 (use-package avy
   :config
   (setq avy-style 'words)
