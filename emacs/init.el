@@ -226,6 +226,9 @@
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
   :ensure)
 
+(use-package doom-themes
+  :ensure)
+
 (use-package dumb-jump
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
