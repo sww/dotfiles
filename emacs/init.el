@@ -338,7 +338,6 @@
                          (lsp-deferred)))
   :ensure)
 
-
 (use-package lsp-ui
   :commands lsp-ui-mode
   :ensure)
