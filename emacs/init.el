@@ -283,6 +283,11 @@
   (setq ivy-use-virtual-buffers t)
   :ensure)
 
+(use-package ivy-prescient
+  :config
+  (ivy-prescient-mode)
+  :ensure)
+
 (use-package lsp-ivy
   :ensure)
 
