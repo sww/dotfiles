@@ -325,6 +325,15 @@
                            ;; Don't mess with EXWM buffers
                            (with-current-buffer buffer
                              (not (derived-mode-p 'exwm-mode))))))))
+
+  ;; Just show the icon, name, and file size for the counsel-git results.
+  (ivy-rich-set-columns
+     'counsel-git
+     '((all-the-icons-ivy-rich-file-icon)
+       (all-the-icons-ivy-rich-file-name (:width 0.85))
+       (all-the-icons-ivy-rich-file-size
+        (:width 0.1 :face all-the-icons-ivy-rich-size-face :align right))))
+
   :ensure)
 
 (use-package lsp-ivy
