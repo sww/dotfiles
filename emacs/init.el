@@ -295,6 +295,29 @@
   (setq ivy-use-virtual-buffers t)
   :ensure)
 
+(use-package ivy-posframe
+  :init
+  (ivy-posframe-mode 1)
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
+  (setq ivy-posframe-parameters
+        '((left-fringe . 8)
+          (right-fringe . 8)))
+
+  (set-face-attribute 'ivy-posframe nil :foreground "black" :background "papaya whip")
+  (set-face-attribute 'ivy-posframe-cursor nil :foreground "orange" :background "orange")
+
+  ;; Make the width of the posframe fixed.
+  ;; From https://github.com/tumashu/ivy-posframe/issues/105#issuecomment-750370286.
+  (defun my-ivy-posframe-get-size ()
+    "Set the ivy-posframe size according to the current frame."
+    (let ((height (or ivy-posframe-height (or ivy-height 10)))
+          (width (min (or ivy-posframe-width 200) (round (* 0.95 (frame-width))))))
+      (list :height height :width width :min-height height :min-width width)))
+
+  (setq ivy-posframe-size-function 'my-ivy-posframe-get-size)
+  :ensure)
+
 (use-package ivy-prescient
   :config
   (ivy-prescient-mode)
