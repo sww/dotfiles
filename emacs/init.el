@@ -217,6 +217,10 @@
   :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
   :ensure)
 
+(use-package dockerfile-mode
+  :defer t
+  :ensure)
+
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :config
