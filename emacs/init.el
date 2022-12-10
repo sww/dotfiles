@@ -235,8 +235,8 @@
   :config
   (setq dumb-jump-selector 'ivy)
   :bind (("C-M-o" . dumb-jump-go-other-window)
-         ("C-M-q" . dumb-jump-quick-look)
          ("C-M-p" . xref-pop-marker-stack)
+         ("C-M-," . dumb-jump-quick-look)
          ("C-M-g" . xref-find-definitions))
   :ensure)
 
