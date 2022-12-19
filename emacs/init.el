@@ -5,10 +5,6 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 ;; Sets the dotfiles emacs dir.
 (defvar emacsdir
   (file-name-directory
@@ -42,7 +38,8 @@
   (package-refresh-contents))
 
 ;; Install use-package if not already installed.
-(when (eq (require 'use-package nil 'noerror) nil)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package))
 
 ;; Global-ish configs -- anything that affects other packages or global emacs settings.
