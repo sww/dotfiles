@@ -46,8 +46,8 @@
 
 ;; Have the custom variables live in <user-emacs-directory>/custom.el.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-   (when (file-exists-p custom-file)
-     (load custom-file))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (delete-selection-mode) ;; For being able to C-d selected lines.
 (setq delete-active-region 0)
@@ -90,12 +90,11 @@
 (setq enable-recursive-minibuffers t)
 
 ;; Show the buffer's full file path in the title.
-(setq frame-title-format '((buffer-file-name "%f"
-                                             (dired-directory dired-directory "%b"))))
+(setq frame-title-format '((buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 (global-set-key [f8] 'comment-region)
 (global-set-key [f9] 'uncomment-region)
-(global-set-key [f10] nil) ;; Prevent the default action -- mainly for OSX.
+(global-set-key [f10] nil) ;; Prevent the default action -- mainly for macOS.
 (global-set-key [C-tab] 'other-window)
 (global-set-key "\M-p" 'next-buffer)
 (global-set-key "\M-n" 'previous-buffer)
@@ -121,8 +120,8 @@
 ;; HTML.
 (defun my-html-mode-hooks ()
   "Set ups for how I like html mode."
-  (auto-fill-mode 0) ;; Prevents auto indenting.
-  )
+  ;; Prevents auto indenting.
+  (auto-fill-mode 0))
 (add-hook 'html-mode-hook 'my-html-mode-hooks)
 
 ;; Python.
@@ -352,11 +351,11 @@
 
   ;; Just show the icon, name, and file size for the counsel-git results.
   (ivy-rich-set-columns
-     'counsel-git
-     '((all-the-icons-ivy-rich-file-icon)
-       (all-the-icons-ivy-rich-file-name (:width 0.85))
-       (all-the-icons-ivy-rich-file-size
-        (:width 0.1 :face all-the-icons-ivy-rich-size-face :align right))))
+   'counsel-git
+   '((all-the-icons-ivy-rich-file-icon)
+     (all-the-icons-ivy-rich-file-name (:width 0.85))
+     (all-the-icons-ivy-rich-file-size
+      (:width 0.1 :face all-the-icons-ivy-rich-size-face :align right))))
 
   :ensure)
 
