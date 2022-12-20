@@ -172,9 +172,6 @@
   :hook (company-mode . company-box-mode)
   :ensure)
 
-(use-package company-go
-  :ensure)
-
 (use-package company-prescient
   :config
   (company-prescient-mode)
