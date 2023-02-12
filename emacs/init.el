@@ -94,6 +94,7 @@
 
 (global-set-key [f8] 'comment-region)
 (global-set-key [f9] 'uncomment-region)
+(global-set-key (kbd "\C-c c") 'comment-or-uncomment-region)
 (global-set-key [f10] nil) ;; Prevent the default action -- mainly for macOS.
 (global-set-key [C-tab] 'other-window)
 (global-set-key "\M-p" 'next-buffer)
