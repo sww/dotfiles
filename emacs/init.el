@@ -288,6 +288,8 @@
   :init
   (ivy-mode 1)
   :bind (("C-x C-b" . ivy-switch-buffer)
+         ("C-c v" . ivy-push-view)
+         ("C-c V" . ivy-pop-view)
          ("C-c r" . ivy-resume))
   :config
   (setq ivy-use-virtual-buffers t)
