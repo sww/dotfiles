@@ -211,8 +211,7 @@
   :ensure)
 
 (use-package dockerfile-mode
-  :defer t
-  :ensure)
+  :defer t)
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
