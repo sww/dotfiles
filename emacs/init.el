@@ -34,9 +34,6 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
 ;; Install use-package if not already installed.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -131,7 +128,8 @@
 
 (use-package ace-window
   :bind (("M-g b" . ace-window))
-  :ensure)
+  :commands ace-window
+  :defer t)
 
 (use-package all-the-icons-ibuffer
   :init (all-the-icons-ibuffer-mode 1)
@@ -142,17 +140,18 @@
   :ensure)
 
 (use-package avy
+  :commands (avy-goto-char-timer avy-goto-line avy-goto-word-0)
   :config
   (setq avy-style 'words)
   :bind (("M-g c" . avy-goto-char-timer)
          ("M-g l" . avy-goto-line)
          ("M-g w" . avy-goto-word-0))
-  :ensure)
+  :defer t)
 
 (use-package company
-  :config
+  :init
   (add-hook 'after-init-hook 'global-company-mode)
-  (global-company-mode)
+  :config
   (setq company-show-numbers t)
   (setq company-idle-delay 1)  ;; In seconds.
   (custom-set-faces
@@ -164,29 +163,40 @@
          ("<S-tab>" . company-select-previous)
          ("TAB" . company-complete-common-or-cycle)
          ("S-TAB" . company-select-previous))
-  :ensure)
+  :defer t)
 
 (use-package company-box
+  :after (company)
+  :commands
+  (company-box-mode)
   :hook (company-mode . company-box-mode)
-  :ensure)
+  :defer t)
 
 (use-package company-prescient
+  :after (company)
   :config
   (company-prescient-mode)
-  :ensure)
+  :hook (company-mode)
+  :defer t)
 
 (use-package company-quickhelp
+  :after (company)
   :config
   (eval-after-load 'company
     '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
-  :ensure)
+  :hook (company-mode)
+  :defer t)
 
 (use-package company-statistics
+  :after (company)
+  :commands
+  (company-statistics-mode)
   :config
   (add-hook 'after-init-hook 'company-statistics-mode)
-  :ensure)
+  :defer t)
 
 (use-package counsel
+  :commands (counsel-git counsel-M-x counsel-grepper)
   :config
   (fset 'counsel-grepper (cond ((executable-find "rg") 'counsel-rg)
                                ((executable-find "ag") 'counsel-ag)
@@ -196,10 +206,11 @@
          ("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("M-s f" . counsel-grepper))
-  :ensure)
+  :defer t)
 
 (use-package dap-mode
   :after lsp-mode
+  :commands (dap-mode dap-ui-mode dap-tooltip-mode)
   :config
   (dap-mode t)
   (dap-ui-mode t)
@@ -208,7 +219,7 @@
   (require 'dap-python)
   ;; Show the hydra debug commands when stopped on a breakpoint.
   :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
-  :ensure)
+  :defer t)
 
 (use-package dockerfile-mode
   :defer t)
@@ -223,18 +234,20 @@
   :ensure)
 
 (use-package doom-themes
+  ;; doom-one is the preferred dark theme.
   :ensure)
 
 (use-package dumb-jump
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :commands (dumb-jump-go-other-window dumb-jump-quick-look xref-pop-marker-stack xref-find-definitions)
   :config
   (setq dumb-jump-selector 'ivy)
   :bind (("C-M-o" . dumb-jump-go-other-window)
          ("C-M-p" . xref-pop-marker-stack)
          ("C-M-," . dumb-jump-quick-look)
          ("C-M-g" . xref-find-definitions))
-  :ensure)
+  :defer t)
 
 (use-package eat
   :config
@@ -253,13 +266,14 @@
   :init
   (add-hook 'go-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
+  :commands (flycheck-mode)
   :config
   (custom-set-faces
    '(flycheck-warning ((t (:underline (:color "cyan" :style line)))))
    '(flycheck-error ((t (:underline (:color "coral3" :style wave))))))
   (setq flycheck-highlighting-mode 'lines)
   (setq flycheck-display-errors-delay 0.15)
-  :ensure)
+  :defer t)
 
 (use-package flyspell
   :init
@@ -271,7 +285,8 @@
    '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line)))))))
 
 (use-package free-keys
-  :ensure)
+  :commands (free-keys free-keys-mode)
+  :defer t)
 
 (use-package go-mode
   :init
@@ -285,7 +300,7 @@
   :config
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
-  :ensure)
+  :defer t)
 
 (use-package ivy
   :init
@@ -299,6 +314,7 @@
   :ensure)
 
 (use-package ivy-posframe
+  :after (ivy)
   :init
   (ivy-posframe-mode 1)
   :config
@@ -322,9 +338,11 @@
   :ensure)
 
 (use-package ivy-prescient
+  :after (ivy)
   :config
   (ivy-prescient-mode)
-  :ensure)
+  :hook (ivy-mode)
+  :defer t)
 
 (use-package ivy-rich
   :after (:and ivy counsel)
@@ -359,11 +377,13 @@
      (all-the-icons-ivy-rich-file-name (:width 0.85))
      (all-the-icons-ivy-rich-file-size
       (:width 0.1 :face all-the-icons-ivy-rich-size-face :align right))))
-
-  :ensure)
+  :hook (ivy-mode)
+  :defer t)
 
 (use-package lsp-ivy
-  :ensure)
+  :after (:and ivy lsp-mode)
+  :hook (ivy-mode)
+  :defer t)
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -379,14 +399,15 @@
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
                          (lsp-deferred)))
-  :ensure)
+  :defer t)
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :ensure)
+  :defer t)
 
 (use-package magit
   :bind (("C-x g" . magit-status))
+  :commands (magit-status)
   :config
   ;; Display the magit buffer in the current buffer.
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
@@ -410,7 +431,7 @@
           magit-insert-unpushed-to-upstream-or-recent
           magit-insert-unpushed-to-pushremote))
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-  :ensure)
+  :defer t)
 
 (use-package multiple-cursors
   :bind
@@ -419,17 +440,19 @@
    ("C-<" . 'mc/mark-previous-like-this)
    ("C-c C-<" . 'mc/mark-all-like-this)
    ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
-  :ensure)
+  :commands (mc/edit-lines mc/mark-next-like-this mc/mark-previous-like-this mc/mark-all-like-this mc/add-cursor-on-click)
+  :defer t)
 
 (use-package org
   :config
   ;; Don't truncate long lines -- enable word wrapping.
   (setq org-startup-truncated nil)
-  :ensure)
+  :defer t)
 
 (use-package quake
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
+  :commands (quake)
   :defer t)
 
 (use-package solarized-theme
@@ -442,21 +465,23 @@
 (use-package swiper
   :bind (("C-s" . swiper)
          ("M-s s" . swiper-all))
-  :ensure)
+  :commands (swiper swiper-all)
+  :defer t)
 
 (use-package windmove
   :config
-  (windmove-default-keybindings))
+  (windmove-default-keybindings)
+  :defer t)
 
 (use-package which-key
-  :ensure)
+  :defer t)
 
 (use-package yaml-mode
-  :ensure)
+  :defer t)
 
 (use-package yasnippet
   :init
   (yas-global-mode 1)
-  :ensure)
+  :defer t)
 
 ;;; init.el ends here
