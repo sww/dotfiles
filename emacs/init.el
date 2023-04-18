@@ -240,6 +240,11 @@
          ("C-M-g" . xref-find-definitions))
   :ensure)
 
+(use-package eat
+  :config
+  (setq eat-term-name "xterm-256color")
+  :defer)
+
 (use-package exec-path-from-shell
   :init
   ;; Set the path from $PATH.
