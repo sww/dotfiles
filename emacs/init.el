@@ -194,8 +194,10 @@
   (fset 'counsel-grepper (cond ((executable-find "rg") 'counsel-rg)
                                ((executable-find "ag") 'counsel-ag)
                                ('counsel-grep)))
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
   :bind (("C-x C-d" . counsel-git)
          ("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
          ("M-s f" . counsel-grepper))
   :ensure)
 
