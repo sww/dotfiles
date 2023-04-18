@@ -63,13 +63,10 @@
 
 ;; Settings for the look and feel of emacs.
 
-(setq menu-bar-mode nil
-      scroll-bar-mode nil
-      tool-bar-mode nil)
-
 (blink-cursor-mode nil)
 (column-number-mode t)
 (delete-selection-mode t)
+(menu-bar-mode nil)
 (scroll-bar-mode nil)
 (tool-bar-mode nil)
 
