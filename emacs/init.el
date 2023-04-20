@@ -132,11 +132,11 @@
   :defer t)
 
 (use-package all-the-icons-ibuffer
-  :init (all-the-icons-ibuffer-mode 1)
+  :config (all-the-icons-ibuffer-mode 1)
   :ensure)
 
 (use-package all-the-icons-ivy-rich
-  :init (all-the-icons-ivy-rich-mode 1)
+  :config (all-the-icons-ivy-rich-mode 1)
   :ensure)
 
 (use-package avy
@@ -149,9 +149,8 @@
   :defer t)
 
 (use-package company
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
   :config
+  (add-hook 'after-init-hook 'global-company-mode)
   (setq company-show-numbers t)
   (setq company-idle-delay 1)  ;; In seconds.
   (custom-set-faces
@@ -225,8 +224,8 @@
   :defer t)
 
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)
   :config
+  (doom-modeline-mode 1)
   (setq doom-modeline-env-enable-python t)
   (setq doom-modeline-env-enable-go t)
   (setq doom-modeline-height 20)
@@ -255,7 +254,7 @@
   :defer)
 
 (use-package exec-path-from-shell
-  :init
+  :config
   ;; Set the path from $PATH.
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize)
@@ -276,10 +275,9 @@
   :defer t)
 
 (use-package flyspell
-  :init
+  :config
   ;; Enable spell checking for comments and strings.
   (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-  :config
   (custom-set-faces
    '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
    '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line)))))))
@@ -289,7 +287,7 @@
   :defer t)
 
 (use-package go-mode
-  :init
+  :config
   (add-hook 'go-mode-hook 'which-function-mode)
   ;; Set up before-save hooks to format buffer and add/delete imports.
   ;; Make sure you don't have other gofmt/goimports hooks enabled.
@@ -297,19 +295,17 @@
     (add-hook 'before-save-hook #'lsp-format-buffer t t)
     (add-hook 'before-save-hook #'lsp-organize-imports t t))
   (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-  :config
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
   :defer t)
 
 (use-package ivy
-  :init
-  (ivy-mode 1)
   :bind (("C-x C-b" . ivy-switch-buffer)
          ("C-c v" . ivy-push-view)
          ("C-c V" . ivy-pop-view)
          ("C-c r" . ivy-resume))
   :config
+  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   :ensure)
 
@@ -480,7 +476,7 @@
   :defer t)
 
 (use-package yasnippet
-  :init
+  :config
   (yas-global-mode 1)
   :defer t)
 
