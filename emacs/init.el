@@ -16,7 +16,7 @@
 (load-file (concat (file-name-as-directory emacsdir) "util.el"))
 
 ;; Load any local configs in the `emacsdir/local.el` file.
-(let ((local-config-file (concat (file-name-as-directory emacsdir) "local.el")))
+(let ((local-config-file (locate-user-emacs-file "local.el")))
   (when (file-exists-p local-config-file)
     (load-file local-config-file)))
 
