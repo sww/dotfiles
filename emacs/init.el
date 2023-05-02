@@ -464,11 +464,6 @@
   :commands (swiper swiper-all)
   :defer t)
 
-(use-package windmove
-  :config
-  (windmove-default-keybindings)
-  :defer t)
-
 (use-package which-key
   :defer t)
 
