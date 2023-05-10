@@ -465,6 +465,9 @@
   :defer t)
 
 (use-package which-key
+  :commands which-key-mode
+  :init
+  (which-key-mode)
   :defer t)
 
 (use-package yaml-mode
