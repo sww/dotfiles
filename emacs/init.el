@@ -237,10 +237,9 @@
   :ensure)
 
 (use-package dumb-jump
-  :init
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   :commands (dumb-jump-go-other-window dumb-jump-quick-look xref-pop-marker-stack xref-find-definitions)
   :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   (setq dumb-jump-selector 'ivy)
   :bind (("C-M-o" . dumb-jump-go-other-window)
          ("C-M-p" . xref-pop-marker-stack)
