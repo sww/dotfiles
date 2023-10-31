@@ -474,7 +474,7 @@
   :defer t)
 
 (use-package quake
-  :load-path "lisp/quake"
+  :elpaca (local :repo "lisp/quake")
   :bind (("C-`" . quake))
   :commands (quake)
   :defer t)
