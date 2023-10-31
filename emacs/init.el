@@ -89,12 +89,12 @@
 
 ;; Settings for the look and feel of emacs.
 
-(blink-cursor-mode nil)
+(blink-cursor-mode -1)
 (column-number-mode t)
 (delete-selection-mode t)
-(menu-bar-mode nil)
-(scroll-bar-mode nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
 
 (setq-default indent-tabs-mode nil)
 (setq mac-command-modifier 'meta)
