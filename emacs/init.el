@@ -308,7 +308,9 @@
   (add-hook 'prog-mode-hook #'flyspell-prog-mode)
   (custom-set-faces
    '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
-   '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line)))))))
+   '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line))))))
+  ;; Flyspell is a builtin library, so set no fetch location.
+  :elpaca nil)
 
 (use-package free-keys
   :commands (free-keys free-keys-mode)
