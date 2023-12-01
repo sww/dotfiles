@@ -363,10 +363,8 @@
 
 (use-package ivy-prescient
   :after (ivy)
-  :config
-  (ivy-prescient-mode)
-  :hook (ivy-mode)
-  :defer t)
+  :config (ivy-prescient-mode)
+  :ensure)
 
 (use-package ivy-rich
   :after (:and ivy counsel)
