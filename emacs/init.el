@@ -471,6 +471,10 @@
   (setq org-startup-truncated nil)
   :defer t)
 
+(use-package prescient
+  :config (prescient-persist-mode)
+  :ensure)
+
 (use-package quake
   :elpaca (local :repo "lisp/quake")
   :bind (("C-`" . quake))
