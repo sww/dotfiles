@@ -202,9 +202,7 @@
 
 (use-package company-prescient
   :after (company)
-  :config
-  (company-prescient-mode)
-  :hook (company-mode)
+  :config (company-prescient-mode)
   :defer t)
 
 (use-package company-quickhelp
