@@ -425,6 +425,7 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :bind ("C-c C-l d s" . lsp-ui-doc-show)
   :defer t)
 
 (use-package magit
