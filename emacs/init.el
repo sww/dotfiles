@@ -41,6 +41,14 @@
 
 (setq echo-keystrokes 0.01) ;; Interval for echoing the keystroke in the minibuffer.
 
+(setq view-read-only t) ;; Always enter view-mode for read only buffers.
+(add-hook 'view-mode-hook
+          (lambda ()
+            (interactive)
+            (local-set-key (kbd "f") #'View-scroll-page-forward)
+            (local-set-key (kbd "b") #'View-scroll-page-backward)
+            (local-set-key (kbd "G") #'View-scroll-to-buffer-end)))
+
 ;; Settings for the look and feel of emacs.
 
 (blink-cursor-mode -1)
