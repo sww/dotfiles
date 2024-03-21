@@ -271,6 +271,7 @@
   :elpaca nil)
   :hook
   (prog-mode . flyspell-prog-mode)
+  (org-mode . flyspell-mode)
   :ensure)
 
 (use-package free-keys
