@@ -138,8 +138,8 @@
   :defer t)
 
 (use-package company
+  :hook (after-init . global-company-mode)
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
   (setq company-show-numbers t)
   (setq company-idle-delay 1)  ;; In seconds.
   (custom-set-faces
