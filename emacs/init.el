@@ -267,8 +267,6 @@
   (custom-set-faces
    '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
    '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line))))))
-  ;; Flyspell is a builtin library, so set no fetch location.
-  :elpaca nil)
   :hook
   (prog-mode . flyspell-prog-mode)
   (org-mode . flyspell-mode)
@@ -441,7 +439,7 @@
   :ensure)
 
 (use-package quake
-  :elpaca (local :repo "lisp/quake")
+  :load-path "lisp/quake"
   :bind (("C-`" . quake))
   :commands (quake)
   :defer t)
