@@ -66,9 +66,12 @@
 
 (column-number-mode 1)
 (show-paren-mode 1)
-(if (version< emacs-version "26.1")
-    (global-linum-mode)
-  (global-display-line-numbers-mode))
+
+(defun sww/enable-line-numbers ()
+    (display-line-numbers-mode 1))
+
+(add-hook 'prog-mode-hook 'sww/enable-line-numbers)
+(add-hook 'conf-mode-hook 'sww/enable-line-numbers)
 
 ;; Allow invoking of other commands if in the minibuffer.
 (setq enable-recursive-minibuffers t)
