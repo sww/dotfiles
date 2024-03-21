@@ -65,7 +65,6 @@
 (setq abbrev-file-name (concat (file-name-as-directory emacsdir) "abbrevs.el"))
 
 (column-number-mode 1)
-(line-number-mode 1)
 (show-paren-mode 1)
 (if (version< emacs-version "26.1")
     (global-linum-mode)
