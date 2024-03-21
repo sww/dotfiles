@@ -119,7 +119,7 @@
 (use-package ace-window
   :bind (("M-g b" . ace-window))
   :commands ace-window
-  :defer t)
+  :ensure)
 
 (use-package all-the-icons-ibuffer
   :config (all-the-icons-ibuffer-mode 1)
@@ -136,7 +136,7 @@
   :bind (("M-g c" . avy-goto-char-timer)
          ("M-g l" . avy-goto-line)
          ("M-g w" . avy-goto-word-0))
-  :defer t)
+  :ensure)
 
 (use-package company
   :hook (after-init . global-company-mode)
@@ -152,19 +152,19 @@
          ("<S-tab>" . company-select-previous)
          ("TAB" . company-complete-common-or-cycle)
          ("S-TAB" . company-select-previous))
-  :defer t)
+  :ensure)
 
 (use-package company-box
   :after (company)
   :commands
   (company-box-mode)
   :hook (company-mode . company-box-mode)
-  :defer t)
+  :ensure)
 
 (use-package company-prescient
   :after (company)
   :config (company-prescient-mode)
-  :defer t)
+  :ensure)
 
 (use-package company-quickhelp
   :after (company)
@@ -172,7 +172,7 @@
   (eval-after-load 'company
     '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
   :hook (company-mode)
-  :defer t)
+  :ensure)
 
 (use-package company-statistics
   :after (company)
@@ -180,7 +180,7 @@
   (company-statistics-mode)
   :config
   (add-hook 'after-init-hook 'company-statistics-mode)
-  :defer t)
+  :ensure)
 
 (use-package counsel
   :commands (counsel-git counsel-M-x counsel-grepper)
@@ -193,7 +193,7 @@
          ("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("M-s f" . counsel-grepper))
-  :defer t)
+  :ensure)
 
 (use-package dap-mode
   :after lsp-mode
@@ -206,10 +206,10 @@
   (require 'dap-python)
   ;; Show the hydra debug commands when stopped on a breakpoint.
   :hook (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
-  :defer t)
+  :ensure)
 
 (use-package dockerfile-mode
-  :defer t)
+  :ensure)
 
 (use-package doom-modeline
   :config
@@ -233,7 +233,7 @@
          ("C-M-p" . xref-pop-marker-stack)
          ("C-M-," . dumb-jump-quick-look)
          ("C-M-g" . xref-find-definitions))
-  :defer t)
+  :ensure)
 
 (use-package eat
   :config
@@ -259,7 +259,7 @@
    '(flycheck-error ((t (:underline (:color "coral3" :style wave))))))
   (setq flycheck-highlighting-mode 'lines)
   (setq flycheck-display-errors-delay 0.15)
-  :defer t)
+  :ensure)
 
 (use-package flyspell
   :config
@@ -274,7 +274,7 @@
 
 (use-package free-keys
   :commands (free-keys free-keys-mode)
-  :defer t)
+  :ensure)
 
 (use-package go-mode
   :config
@@ -287,7 +287,7 @@
   (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
-  :defer t)
+  :ensure)
 
 (use-package ivy
   :bind (("C-x C-b" . ivy-switch-buffer)
@@ -362,12 +362,12 @@
      (all-the-icons-ivy-rich-file-size
       (:width 0.1 :face all-the-icons-ivy-rich-size-face :align right))))
   :hook (ivy-mode)
-  :defer t)
+  :ensure)
 
 (use-package lsp-ivy
   :after (:and ivy lsp-mode)
   :hook (ivy-mode)
-  :defer t)
+  :ensure)
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -383,12 +383,12 @@
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
                          (lsp-deferred)))
-  :defer t)
+  :ensure)
 
 (use-package lsp-ui
   :commands lsp-ui-mode
   :bind ("C-c C-l d s" . lsp-ui-doc-show)
-  :defer t)
+  :ensure)
 
 (use-package magit
   :bind (("C-x g" . magit-status))
@@ -416,7 +416,7 @@
           magit-insert-unpushed-to-upstream-or-recent
           magit-insert-unpushed-to-pushremote))
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-  :defer t)
+  :ensure)
 
 (use-package multiple-cursors
   :bind
@@ -426,13 +426,13 @@
    ("C-c C-<" . 'mc/mark-all-like-this)
    ("C-S-<mouse-1>" . 'mc/add-cursor-on-click))
   :commands (mc/edit-lines mc/mark-next-like-this mc/mark-previous-like-this mc/mark-all-like-this mc/add-cursor-on-click)
-  :defer t)
+  :ensure)
 
 (use-package org
   :config
   ;; Don't truncate long lines -- enable word wrapping.
   (setq org-startup-truncated nil)
-  :defer t)
+  :ensure)
 
 (use-package prescient
   :config (prescient-persist-mode)
@@ -442,7 +442,7 @@
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
   :commands (quake)
-  :defer t)
+  :ensure)
 
 (use-package solarized-theme
   :init
@@ -455,20 +455,20 @@
   :bind (("C-s" . swiper)
          ("M-s s" . swiper-all))
   :commands (swiper swiper-all)
-  :defer t)
+  :ensure)
 
 (use-package which-key
   :commands which-key-mode
   :init
   (which-key-mode)
-  :defer t)
+  :ensure)
 
 (use-package yaml-mode
-  :defer t)
+  :ensure)
 
 (use-package yasnippet
   :config
   (yas-global-mode 1)
-  :defer t)
+  :ensure)
 
 ;;; init.el ends here
