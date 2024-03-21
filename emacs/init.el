@@ -437,6 +437,11 @@
   (setq org-startup-truncated nil)
   :ensure)
 
+(use-package org-modern
+  :hook
+  (org-mode . org-modern-mode)
+  :ensure)
+
 (use-package prescient
   :config (prescient-persist-mode)
   :ensure)
