@@ -460,6 +460,11 @@
   :commands (swiper swiper-all)
   :ensure)
 
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode)
+  :ensure)
+
 (use-package which-key
   :commands which-key-mode
   :init
