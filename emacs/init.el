@@ -32,6 +32,7 @@
 (delete-selection-mode) ;; For being able to C-d selected lines.
 (setq delete-active-region 0)
 
+(setq delete-by-moving-to-trash t)
 (setq make-backup-files nil) ;; Don't leave ~ backup files everywhere.
 
 (setq ring-bell-function 'ignore) ;; No visual nor audio bell.
