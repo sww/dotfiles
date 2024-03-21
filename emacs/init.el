@@ -442,6 +442,16 @@
   (org-mode . org-modern-mode)
   :ensure)
 
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename "~/Projects/other/notes/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture))
+  :ensure)
+
 (use-package prescient
   :config (prescient-persist-mode)
   :ensure)
