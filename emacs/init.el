@@ -264,12 +264,14 @@
 (use-package flyspell
   :config
   ;; Enable spell checking for comments and strings.
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
   (custom-set-faces
    '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
    '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line))))))
   ;; Flyspell is a builtin library, so set no fetch location.
   :elpaca nil)
+  :hook
+  (prog-mode . flyspell-prog-mode)
+  :ensure)
 
 (use-package free-keys
   :commands (free-keys free-keys-mode)
