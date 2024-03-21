@@ -431,6 +431,11 @@
   :commands (mc/edit-lines mc/mark-next-like-this mc/mark-previous-like-this mc/mark-all-like-this mc/add-cursor-on-click)
   :ensure)
 
+(use-package olivetti
+  :hook
+  (org-mode . olivetti-mode)
+  :ensure)
+
 (use-package org
   :config
   ;; Don't truncate long lines -- enable word wrapping.
