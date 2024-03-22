@@ -466,8 +466,7 @@
 (use-package quake
   :load-path "lisp/quake"
   :bind (("C-`" . quake))
-  :commands (quake)
-  :ensure)
+  :commands (quake))
 
 (use-package solarized-theme
   :init
