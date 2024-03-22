@@ -442,6 +442,9 @@
   :config
   ;; Don't truncate long lines -- enable word wrapping.
   (setq org-startup-truncated nil)
+  :bind
+  (:map org-mode-map
+        ("<return>" . org-return-and-maybe-indent))
   :ensure)
 
 (use-package org-modern
