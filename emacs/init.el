@@ -250,9 +250,6 @@
   :ensure)
 
 (use-package flycheck
-  :init
-  (add-hook 'go-mode-hook 'flycheck-mode)
-  (add-hook 'python-mode-hook 'flycheck-mode)
   :commands (flycheck-mode)
   :config
   (custom-set-faces
@@ -260,6 +257,9 @@
    '(flycheck-error ((t (:underline (:color "coral3" :style wave))))))
   (setq flycheck-highlighting-mode 'lines)
   (setq flycheck-display-errors-delay 0.15)
+  :hook
+  (go-ts-mode . flycheck-mode)
+  (python-ts-mode . flycheck-mode)
   :ensure)
 
 (use-package flyspell
