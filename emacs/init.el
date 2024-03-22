@@ -112,9 +112,7 @@
   (auto-fill-mode 0))
 (add-hook 'html-mode-hook 'my-html-mode-hooks)
 
-;; Python.
-(add-hook 'python-mode-hook 'which-function-mode)
-;; Set the indent level to only be one on newlines.
+;; Set the indent level to only be one on newlines for Python.
 (set-variable 'python-indent-def-block-scale 1)
 
 ;; Package stuff.
@@ -281,7 +279,6 @@
 
 (use-package go-mode
   :config
-  (add-hook 'go-mode-hook 'which-function-mode)
   ;; Set up before-save hooks to format buffer and add/delete imports.
   ;; Make sure you don't have other gofmt/goimports hooks enabled.
   (defun lsp-go-install-save-hooks ()
