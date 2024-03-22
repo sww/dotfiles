@@ -284,9 +284,10 @@
   (defun lsp-go-install-save-hooks ()
     (add-hook 'before-save-hook #'lsp-format-buffer t t)
     (add-hook 'before-save-hook #'lsp-organize-imports t t))
-  (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
+  :hook
+  (go-ts-mode . lsp-go-install-save-hooks)
   :ensure)
 
 (use-package golden-ratio
@@ -376,7 +377,7 @@
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (go-mode . lsp-deferred)
+  :hook (go-ts-mode . lsp-deferred)
   :config
   ;; Set the styles for flycheck's unnecessary and deprecated warnings.
   (setq lsp-diagnostics-attributes
@@ -385,9 +386,9 @@
   :ensure)
 
 (use-package lsp-pyright
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp-deferred)))
+  :hook (python-ts-mode . (lambda ()
+                            (require 'lsp-pyright)
+                            (lsp-deferred)))
   :ensure)
 
 (use-package lsp-ui
