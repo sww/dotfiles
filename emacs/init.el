@@ -179,8 +179,8 @@
   :after (company)
   :commands
   (company-statistics-mode)
-  :config
-  (add-hook 'after-init-hook 'company-statistics-mode)
+  :hook
+  (after-init . company-statistics-mode)
   :ensure)
 
 (use-package counsel
