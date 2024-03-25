@@ -504,4 +504,8 @@
   (yas-global-mode 1)
   :ensure)
 
+(use-package yasnippet-snippets
+  :after (yasnippet)
+  :ensure)
+
 ;;; init.el ends here
