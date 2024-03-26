@@ -1,10 +1,5 @@
 ;; Utility functions.
 
-(defun kill-before ()
-  (interactive)
-  (kill-line 0)
-)
-
 (defun iwb ()
   "indent whole buffer"
   (interactive)
