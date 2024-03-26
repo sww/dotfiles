@@ -5,14 +5,6 @@
   (kill-line 0)
 )
 
-(defun nm ()
-  (interactive)
-  (insert "if __name__ == '__main__':\n    "))
-
-(defun pypdb ()
-  (interactive)
-  (insert "import pdb; pdb.set_trace()"))
-
 (defun iwb ()
   "indent whole buffer"
   (interactive)
