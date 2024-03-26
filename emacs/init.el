@@ -270,6 +270,10 @@
   (custom-set-faces
    '(flyspell-duplicate ((t (:weight bold :underline (:color "purple" :style line)))))
    '(flyspell-incorrect ((t (:slant italic :underline (:color "LightBlue3" :style line))))))
+  ;; Use aspell if available.
+  (if (executable-find "aspell")
+        (setq ispell-program-name "aspell"
+              ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
   :hook
   (prog-mode . flyspell-prog-mode)
   (org-mode . flyspell-mode)
