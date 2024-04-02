@@ -460,6 +460,8 @@
   :ensure)
 
 (use-package org-roam
+  :config
+  (org-roam-db-autosync-mode)
   :custom
   (org-roam-directory (file-truename "~/Projects/other/notes/"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
