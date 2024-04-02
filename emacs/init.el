@@ -111,7 +111,8 @@
 (defun my-html-mode-hooks ()
   "Set ups for how I like html mode."
   ;; Prevents auto indenting.
-  (auto-fill-mode 0))
+  (auto-fill-mode 0)
+  (local-set-key (kbd "M-o") nil))
 (add-hook 'html-mode-hook 'my-html-mode-hooks)
 
 ;; Set the indent level to only be one on newlines for Python.
