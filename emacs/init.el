@@ -297,11 +297,6 @@
   (go-ts-mode . lsp-go-install-save-hooks)
   :ensure)
 
-(use-package golden-ratio
-  :config
-  (golden-ratio-mode 1)
-  :ensure)
-
 (use-package ivy
   :bind (("C-x C-b" . ivy-switch-buffer)
          ("C-c v" . ivy-push-view)
